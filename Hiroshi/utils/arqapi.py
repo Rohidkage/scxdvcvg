@@ -4,18 +4,18 @@ from random import randint
 from time import time
 
 import aiohttp
-from GreyCilik import aiohttpsession
+from Hiroshi import aiohttpsession
 from aiohttp import ClientSession
 
 from google_trans_new import google_translator
 from Python_ARQ import ARQ
 from search_engine_parser import GoogleSearch
 
-from GreyCilik import BOT_ID, OWNER_ID, ARQ_API_URL, ARQ_API_KEY
-from GreyCilik import pbot
+from Hiroshi import BOT_ID, OWNER_ID, ARQ_API_URL, ARQ_API_KEY
+from Hiroshi import pbot
 
-ARQ_API = "WZQUBA-PFAZQJ-OMIINH-MIVHYM-ARQ"
-ARQ_API_KEY = "WZQUBA-PFAZQJ-OMIINH-MIVHYM-ARQ"
+ARQ_API = "ZGPZGV-FMRMJD-XWBQPR-HSBNRZ-ARQ"
+ARQ_API_KEY = "ZGPZGV-FMRMJD-XWBQPR-HSBNRZ-ARQ"
 SUDOERS = OWNER_ID
 ARQ_API_URL = "https://thearq.tech"
 
