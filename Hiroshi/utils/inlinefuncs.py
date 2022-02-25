@@ -24,25 +24,25 @@ from pyrogram.types import (
 )
 from search_engine_parser import GoogleSearch
 
-from GreyCilik import (
+from Hiroshi import (
     DEV_USERS,
     EVENT_LOGS,
     BOT_USERNAME,
     ubot2,
 )
-from GreyCilik import pbot as app
-from GreyCilik import arq
-from GreyCilik.services.keyboard import Ikb
-from GreyCilik.utils.pluginhelper import (
+from Hiroshi import pbot as app
+from Hiroshi import arq
+from Hiroshi.services.keyboard import Ikb
+from Hiroshi.utils.pluginhelper import (
     convert_seconds_to_minutes as time_convert,
     fetch,
 )
-from GreyCilik.services.tasks import _get_tasks_text, all_tasks, rm_task
-from GreyCilik.services.types import InlineQueryResultCachedDocument
-from GreyCilik.modules.info import get_chat_info, get_user_info
-from GreyCilik.modules.music import download_youtube_audio
-from GreyCilik.utils.functions import test_speedtest
-from GreyCilik.utils.pastebin import paste
+from Hiroshi.services.tasks import _get_tasks_text, all_tasks, rm_task
+from Hiroshi.services.types import InlineQueryResultCachedDocument
+from Hiroshi.modules.info import get_chat_info, get_user_info
+from Hiroshi.modules.music import download_youtube_audio
+from Hiroshi.utils.functions import test_speedtest
+from Hiroshi.utils.pastebin import paste
 
 MESSAGE_DUMP_CHAT = EVENT_LOGS
 
@@ -108,7 +108,7 @@ async def inline_help_func(__HELP__):
             input_message_content=InputTextMessageContent(
                 "**__Click A Button To Get Started.__**"
             ),
-            thumb_url="https://telegra.ph/file/71988eea4f74722f38217.jpg",
+            thumb_url="https://telegra.ph/file/4b49392b7d0e8c6a408e8.jpg",
             reply_markup=buttons,
         ),
     ]
@@ -121,25 +121,25 @@ async def alive_function(answers):
     bot_state = "Dead" if not await app.get_me() else "Alive"
     ubot_state = "Dead" if not await ubot2.get_me() else "Alive"
     buttons.add(
-        InlineKeyboardButton("Main bot", url="https://t.me/GreyCilik_bot"),
+        InlineKeyboardButton("Main bot", url="https://t.me/HiroshiMusicBot"),
         InlineKeyboardButton("Go Inline!", switch_inline_query_current_chat=""),
     )
 
     msg = f"""
-**[Grey Cilik ❤️](https://t.me/GreyCilik_bot):**
+**[Hiroshi Robot ✨](https://t.me/HiroshiMusicBot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `{ubot_state}`
 **Python:** `{pyver.split()[0]}`
 **Pyrogram:** `{pyrover}`
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/greyyvbss)
+**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/Bisubiarenak)
 """
     answers.append(
         InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/71988eea4f74722f38217.jpg",
+            thumb_url="https://telegra.ph/file/4b49392b7d0e8c6a408e8.jpg",
             input_message_content=InputTextMessageContent(
                 msg, disable_web_page_preview=True
             ),
