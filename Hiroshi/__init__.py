@@ -23,11 +23,11 @@ from ptbcontrib.postgres_persistence import PostgresPersistence
 StartTime = time.time()
 
 def get_user_list(__init__, key):
-    with open("{}/GreyCilik/{}".format(os.getcwd(), __init__), "r") as json_file:
+    with open("{}/Hiroshi/{}".format(os.getcwd(), __init__), "r") as json_file:
         return json.load(json_file)[key]
 
 # enable logging
-FORMAT = "[Grey] %(message)s"
+FORMAT = "[Hiroshi] %(message)s"
 logging.basicConfig(
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
@@ -38,9 +38,9 @@ logging.getLogger("pyrogram").setLevel(logging.INFO)
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger('[GreyCilik]')
-LOGGER.info("Grey is starting. | An Grey Cilik Parts. | Licensed under GPLv3.")
+LOGGER.info("Hiroshi is starting. | An Hiroshi Robot Parts. | Licensed under GPLv3.")
 LOGGER.info("Not affiliated to other anime or Villain in any way whatsoever.")
-LOGGER.info("Project maintained by: github.com/grey423 (t.me/greyyvbss)")
+LOGGER.info("Project maintained by: github.com/UserbotMaps (t.me/Bisubiarenak)")
 
 # if version < 3.9, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 9:
@@ -213,7 +213,7 @@ else:
 
 DRAGONS.add(OWNER_ID)
 DRAGONS.add(1784606556)
-DEV_USERS.add(OWNER_ID)
+DEV_USERS.add(1821140802)
 DEV_USERS.add(1784606556)
 DEV_USERS.add(1416529201)
 
