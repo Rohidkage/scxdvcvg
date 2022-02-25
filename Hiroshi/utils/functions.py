@@ -13,9 +13,9 @@ import speedtest
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from pyrogram.types import Message
 
-from GreyCilik import aiohttpsession as aiosession
-from GreyCilik.ex_plugins.dbfunctions import start_restart_stage
-from GreyCilik.utils.http import get, post
+from Hiroshi import aiohttpsession as aiosession
+from Hiroshi.ex_plugins.dbfunctions import start_restart_stage
+from Hiroshi.utils.http import get, post
 
 
 async def restart(m: Message):
