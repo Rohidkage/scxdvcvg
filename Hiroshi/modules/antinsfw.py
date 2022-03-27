@@ -2,12 +2,12 @@ from os import remove
 
 from pyrogram import filters
 
-from GreyCilik import BOT_USERNAME as bn
-from GreyCilik import pbot, arq
-from GreyCilik.utils.errors import capture_err
-from GreyCilik.utils.permissions import adminsOnly
-from GreyCilik.ex_plugins.dbfunctions import is_nsfw_on, nsfw_off, nsfw_on
-from GreyCilik.utils.filter_groups import nsfw_detect_group
+from Hiroshi import BOT_USERNAME as bn
+from Hiroshi import pbot, arq
+from Hiroshi.utils.errors import capture_err
+from Hiroshi.utils.permissions import adminsOnly
+from Hiroshi.ex_plugins.dbfunctions import is_nsfw_on, nsfw_off, nsfw_on
+from Hiroshi.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
 
