@@ -2,8 +2,8 @@ import datetime
 from typing import List
 
 import requests
-from GreyCilik import TIME_API_KEY, dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
+from Hiroshi import TIME_API_KEY, dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext
 
