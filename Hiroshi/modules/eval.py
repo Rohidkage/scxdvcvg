@@ -6,8 +6,8 @@ import textwrap
 import traceback
 from contextlib import redirect_stdout
 
-from GreyCilik import LOGGER, dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import dev_plus
+from Hiroshi import LOGGER, dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import (
   CallbackContext,
