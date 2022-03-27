@@ -4,9 +4,9 @@ from traceback import format_exc
 from pyrogram import filters
 from pyrogram.types import Message
 
-from GreyCilik import arq
-from GreyCilik.utils.errors import capture_err
-from GreyCilik import pbot as app
+from Hiroshi import arq
+from Hiroshi.utils.errors import capture_err
+from Hiroshi import pbot as app
 
 
 async def quotify(messages: list):
