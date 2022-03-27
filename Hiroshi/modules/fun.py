@@ -2,11 +2,11 @@ import html
 import random
 import time
 
-import GreyCilik.modules.fun_strings as fun_strings
-from GreyCilik import dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.chat_status import is_user_admin
-from GreyCilik.modules.helper_funcs.extraction import extract_user
+import Hiroshi.modules.fun_strings as fun_strings
+from Hiroshi import dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.chat_status import is_user_admin
+from Hiroshi.modules.helper_funcs.extraction import extract_user
 from telegram import ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
@@ -16,7 +16,7 @@ GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr
 
 def runs(update: Update, context: CallbackContext):
     temp = random.choice(fun_strings.RUN_STRINGS)
-    if update.effective_user.id == 1170714920:
+    if update.effective_user.id == 1910856699:
         temp = "Run everyone, they just dropped a bomb 💣💣"
     update.effective_message.reply_text(temp)
 
@@ -313,40 +313,40 @@ def weebify(update: Update, context: CallbackContext):
 
 
 __help__ = """
-❂ /runs*:* reply a random string from an array of replies
-❂ /slap*:* slap a user, or get slapped if not a reply
-❂ /shrug*:* get shrug XD
-❂ /table*:* get flip/unflip :v
-❂ /decide*:* Randomly answers yes/no/maybe
-❂ /toss*:* Tosses A coin
-❂ /bluetext*:* check urself :V
-❂ /roll*:* Roll a dice
-❂ /rlg*:* Join ears,nose,mouth and create an emo ;-;
-❂ /shout <keyword>*:* write anything you want to give loud shout
-❂ /weebify <text>*:* returns a weebified text
-❂ /sanitize*:* always use this before /pat or any contact
-❂ /pat*:* pats a user, or get patted
-❂ /8ball*:* predicts using 8ball method
+✮ /runs*:* reply a random string from an array of replies
+✮ /slap*:* slap a user, or get slapped if not a reply
+✮ /shrug*:* get shrug XD
+✮ /table*:* get flip/unflip :v
+✮ /decide*:* Randomly answers yes/no/maybe
+✮ /toss*:* Tosses A coin
+✮ /bluetext*:* check urself :V
+✮ /roll*:* Roll a dice
+✮ /rlg*:* Join ears,nose,mouth and create an emo ;-;
+✮ /shout <keyword>*:* write anything you want to give loud shout
+✮ /weebify <text>*:* returns a weebified text
+✮ /sanitize*:* always use this before /pat or any contact
+✮ /pat*:* pats a user, or get patted
+✮ /8ball*:* predicts using 8ball method
 
 - Animation
-❂ /love 
-❂ /hack 
-❂ /bombs 
+✮ /love 
+✮ /hack 
+✮ /bombs 
 
 - Shippering
-❂ /couples - get couples of today
+✮ /couples - get couples of today
 
 - Here is the help for the Styletext module:
 
-❂ /weebify <text>: weebify your text!
-❂ /bubble <text>: bubble your text!
-❂ /fbubble <text>: bubble-filled your text!
-❂ /square <text>: square your text!
-❂ /fsquare <text>: square-filled your text!
-❂ /blue <text>: bluify your text!
-❂ /latin <text>: latinify your text!
-❂ /lined <text>: lined your text!
-❂ /cilik <text>: cilik your text!
+✮ /weebify <text>: weebify your text!
+✮ /bubble <text>: bubble your text!
+✮ /fbubble <text>: bubble-filled your text!
+✮ /square <text>: square your text!
+✮ /fsquare <text>: square-filled your text!
+✮ /blue <text>: bluify your text!
+✮ /latin <text>: latinify your text!
+✮ /lined <text>: lined your text!
+✮ /hiroshi <text>: hiroshi your text!
 """
 
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize, run_async=True)
