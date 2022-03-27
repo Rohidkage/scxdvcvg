@@ -2,8 +2,8 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
 
-from GreyCilik.modules.helper_funcs.msg_types import Types
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi.modules.helper_funcs.msg_types import Types
+from Hiroshi.modules.sql import BASE, SESSION
 
 
 class CustomFilters(BASE):
