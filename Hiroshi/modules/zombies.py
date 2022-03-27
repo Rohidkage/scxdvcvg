@@ -6,7 +6,7 @@ from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins
 
-from GreyCilik import telethn, OWNER_ID, DEV_USERS, DRAGONS, DEMONS
+from Hiroshi import telethn, OWNER_ID, DEV_USERS, DRAGONS, DEMONS
 
 # =================== CONSTANT ===================
 
@@ -53,16 +53,16 @@ async def is_administrator(user_id: int, message):
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "**Group clean, not found the deleted account.**"
+    del_status = "**Grup bersih, tidak ditemukan akun yang dihapus.**"
     if con != "clean":
-        kontol = await show.reply("`Searching deleted account...`")
+        kontol = await show.reply("`Mencari akun yang dihapus...`")
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
             del_status = (
-                f"**Founding** `{del_u}` **Deleted account/Zombie On this group,"
+                f"**Founding** `{del_u}` **Menghapus akun zombie Di grup ini,"
                 "\nClean it with command** `/zombies clean`"
             )
         return await kontol.edit(del_status)
@@ -70,8 +70,8 @@ async def rm_deletedacc(show):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await show.reply("**Sorry you're not admin!**")
-    memek = await show.reply("`Deleting deleted account...`")
+        return await show.reply("**Maaf anda bukan admin!**")
+    memek = await show.reply("`Menghapus akun yang dihapus..`")
     del_u = 0
     del_a = 0
     async for user in telethn.iter_participants(show.chat_id):
@@ -81,7 +81,7 @@ async def rm_deletedacc(show):
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                return await show.edit("`Not have a banned rights on this group`")
+                return await show.edit("`Tidak memiliki hak yang dibanned di grup ini`")
             except UserAdminInvalidError:
                 del_u -= 1
                 del_a += 1
