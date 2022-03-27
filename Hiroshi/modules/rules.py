@@ -1,9 +1,9 @@
 from typing import Optional
 
-import GreyCilik.modules.sql.rules_sql as sql
-from GreyCilik import dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import user_admin
-from GreyCilik.modules.helper_funcs.string_handling import markdown_parser
+import Hiroshi.modules.sql.rules_sql as sql
+from Hiroshi import dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import user_admin
+from Hiroshi.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
