@@ -1,7 +1,7 @@
 import threading
 from typing import Union
 
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi.modules.sql import BASE, SESSION
 from sqlalchemy.sql.sqltypes import BigInteger
 from sqlalchemy import Boolean, Column, Integer, String
 
