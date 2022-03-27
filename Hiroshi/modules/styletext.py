@@ -253,7 +253,7 @@ def lined(update, context):
         
 
 @typing_action
-def cilik(update, context):
+def hiroshi(update, context):
     args = context.args
     message = update.effective_message
     string = ""
