@@ -2,9 +2,9 @@ import sre_constants
 
 import regex
 import telegram
-from GreyCilik import LOGGER, dispatcher
-from GreyCilik.modules.disable import DisableAbleMessageHandler
-from GreyCilik.modules.helper_funcs.regex_helper import infinite_loop_check
+from Hiroshi import LOGGER, dispatcher
+from Hiroshi.modules.disable import DisableAbleMessageHandler
+from Hiroshi.modules.helper_funcs.regex_helper import infinite_loop_check
 from telegram import Update
 from telegram.ext import CallbackContext, Filters, run_async
 
