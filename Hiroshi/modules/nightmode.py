@@ -1,5 +1,5 @@
 import os
-from GreyCilik.modules.sql.night_mode_sql import (
+from Hiroshi.modules.sql.night_mode_sql import (
     add_nightmode,
     rmnightmode,
     get_all_chat_id,
@@ -8,8 +8,8 @@ from GreyCilik.modules.sql.night_mode_sql import (
 from telethon.tl.types import ChatBannedRights
 from apscheduler.schedulers.asyncio import AsyncIOScheduler 
 from telethon import functions
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot, OWNER_ID
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot, OWNER_ID
 from telethon import Button, custom, events
 
 hehes = ChatBannedRights(
