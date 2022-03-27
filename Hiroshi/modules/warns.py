@@ -3,9 +3,9 @@ import re
 from typing import Optional
 
 import telegram
-from GreyCilik import TIGERS, WOLVES, dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi import TIGERS, WOLVES, dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     is_user_admin,
@@ -14,16 +14,16 @@ from GreyCilik.modules.helper_funcs.chat_status import (
     user_admin_no_reply,
     can_delete,
 )
-from GreyCilik.modules.helper_funcs.extraction import (
+from Hiroshi.modules.helper_funcs.extraction import (
     extract_text,
     extract_user,
     extract_user_and_text,
 )
-from GreyCilik.modules.helper_funcs.filters import CustomFilters
-from GreyCilik.modules.helper_funcs.misc import split_message
-from GreyCilik.modules.helper_funcs.string_handling import split_quotes
-from GreyCilik.modules.log_channel import loggable
-from GreyCilik.modules.sql import warns_sql as sql
+from Hiroshi.modules.helper_funcs.filters import CustomFilters
+from Hiroshi.modules.helper_funcs.misc import split_message
+from Hiroshi.modules.helper_funcs.string_handling import split_quotes
+from Hiroshi.modules.log_channel import loggable
+from Hiroshi.modules.sql import warns_sql as sql
 from telegram import (
     CallbackQuery,
     Chat,
@@ -45,7 +45,7 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html
-from GreyCilik.modules.sql.approve_sql import is_approved
+from Hiroshi.modules.sql.approve_sql import is_approved
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
@@ -491,15 +491,15 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
 
-❂ /warns <userhandle>: get a user's number, and reason, of warns.
-❂ /warnlist: list of all current warning filters
-❂ /warn <userhandle>: warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
-❂ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
-❂ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
-❂ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
-❂ /nowarn <keyword>: stop a warning filter
-❂ /warnlimit <num>: set the warning limit
-❂ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
+✮ /warns <userhandle>: get a user's number, and reason, of warns.
+✮ /warnlist: list of all current warning filters
+✮ /warn <userhandle>: warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+✮ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+✮ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
+✮ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
+✮ /nowarn <keyword>: stop a warning filter
+✮ /warnlimit <num>: set the warning limit
+✮ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 """
 
 __mod_name__ = "Warning"
