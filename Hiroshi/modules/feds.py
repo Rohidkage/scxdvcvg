@@ -7,8 +7,8 @@ import time
 import uuid
 from io import BytesIO
 
-import GreyCilik.modules.sql.feds_sql as sql
-from GreyCilik import (
+import Hiroshi.modules.sql.feds_sql as sql
+from Hiroshi import (
     EVENT_LOGS,
     LOGGER,
     SUPPORT_CHAT,
@@ -18,15 +18,15 @@ from GreyCilik import (
     WOLVES,
     dispatcher,
 )
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.alternate import send_message
-from GreyCilik.modules.helper_funcs.chat_status import is_user_admin
-from GreyCilik.modules.helper_funcs.extraction import (
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.alternate import send_message
+from Hiroshi.modules.helper_funcs.chat_status import is_user_admin
+from Hiroshi.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
 )
-from GreyCilik.modules.helper_funcs.string_handling import markdown_parser
+from Hiroshi.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -2397,9 +2397,9 @@ def fed_user_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
         """*🎩 Any user:*
 
-❂ /fbanstat*:* Shows if you/or the user you are replying to or their username is fbanned somewhere or not
-❂ /fednotif <on/off>*:* Federation settings not in PM when there are users who are fbaned/unfbanned
-❂ /frules*:* See Federation regulations\n""",
+✮ /fbanstat*:* Shows if you/or the user you are replying to or their username is fbanned somewhere or not
+✮ /fednotif <on/off>*:* Federation settings not in PM when there are users who are fbaned/unfbanned
+✮ /frules*:* See Federation regulations\n""",
         parse_mode=ParseMode.MARKDOWN,
     )
 
