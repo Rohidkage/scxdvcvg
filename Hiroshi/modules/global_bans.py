@@ -13,9 +13,9 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-import GreyCilik.modules.sql.global_bans_sql as sql
-from GreyCilik.modules.sql.users_sql import get_user_com_chats
-from GreyCilik import (
+import Hiroshi.modules.sql.global_bans_sql as sql
+from Hiroshi.modules.sql.users_sql import get_user_com_chats
+from Hiroshi import (
     DEV_USERS,
     EVENT_LOGS,
     OWNER_ID,
@@ -29,32 +29,32 @@ from GreyCilik import (
     sw,
     dispatcher,
 )
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi.modules.helper_funcs.chat_status import (
     is_user_admin,
     support_plus,
     user_admin,
 )
-from GreyCilik.modules.helper_funcs.extraction import (
+from Hiroshi.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from GreyCilik.modules.helper_funcs.misc import send_to_list
+from Hiroshi.modules.helper_funcs.misc import send_to_list
 
 GBAN_ENFORCE_GROUP = 6
 
 GBAN_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Pengguna adalah administrator obrolan",
+    "Obrolan tidak ditemukan",
+    "Tidak cukup hak untuk membatasi/membatalkan pembatasan anggota obrolan",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Obrolan grup dinonaktifkan",
+    "Perlu mengundang pengguna untuk kick dari grup dasar",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Hanya pemimpin grup yang dapat kick administrator grup",
     "Channel_private",
-    "Not in the chat",
-    "Can't remove chat owner",
+    "Tidak di chat",
+    "Tidak dapat menghapus pemilik obrolan",
 }
 
 UNGBAN_ERRORS = {
@@ -539,7 +539,7 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = f"""
 *Admins only:*
-❂ `/antispam <on/off/yes/no>`*:* Will toggle our antispam tech or return your current settings.
+✮ `/antispam <on/off/yes/no>`*:* Will toggle our antispam tech or return your current settings.
 
 Anti-Spam, used by bot devs to ban spammers across all groups. This helps protect \
 you and your groups by removing spam flooders as quickly as possible.
