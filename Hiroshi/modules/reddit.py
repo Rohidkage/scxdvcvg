@@ -1,7 +1,7 @@
 from pyrogram import filters
 
-from GreyCilik import pbot as app, arq
-from GreyCilik.utils.errors import capture_err
+from Hiroshi import pbot as app, arq
+from Hiroshi.utils.errors import capture_err
 
 __mod_name__ = "Reddit"
 
