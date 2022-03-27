@@ -1,5 +1,5 @@
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi.modules.sql import BASE, SESSION
 
 
 class Nightmode(BASE):
