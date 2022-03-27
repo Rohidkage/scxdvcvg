@@ -1,6 +1,6 @@
 import random
-from GreyCilik.events import register
-from GreyCilik import telethn
+from Hiroshi.events import register
+from Hiroshi import telethn
 
 APAKAH_STRING = ["Iya", 
                  "Tidak", 
