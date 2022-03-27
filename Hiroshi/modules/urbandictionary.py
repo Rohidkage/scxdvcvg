@@ -1,8 +1,8 @@
 from requests import get
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.alternate import typing_action
+from Hiroshi import dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.alternate import typing_action
 
 
 @typing_action
@@ -13,8 +13,8 @@ def ud(update, context):
     if not text:
         msg.reply_text("Please enter keywords to search on ud!")
         return
-    elif text == "Tonic":
-        msg.reply_text("Tonic is my owner!")
+    elif text == "Hiro":
+        msg.reply_text("Hiro is my owner!")
         return
     try:
         results = get(f"http://api.urbandictionary.com/v0/define?term={text}").json()
