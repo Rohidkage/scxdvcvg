@@ -1,6 +1,6 @@
-from GreyCilik import telethn as tbot
+from Hiroshi import telethn as tbot
 import os
-from GreyCilik.events import register
+from Hiroshi.events import register
 import secureme
 
 
