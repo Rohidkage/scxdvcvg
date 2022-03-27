@@ -1,8 +1,8 @@
 import traceback
 
-from GreyCilik import pbot as app
-from GreyCilik.utils.pluginhelper import fetch
-from GreyCilik.utils.inlinefuncs import *
+from Hiroshi import pbot as app
+from Hiroshi.utils.pluginhelper import fetch
+from Hiroshi.utils.inlinefuncs import *
 
 __MODULE__ = "Inline"
 __HELP__ = """See inline for help related to inline"""
