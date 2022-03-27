@@ -4,15 +4,15 @@ import re
 
 from telegram import Message, Chat, Update, User, ChatPermissions
 
-from GreyCilik import TIGERS, WOLVES, dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi import TIGERS, WOLVES, dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import (
     bot_admin,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
 )
-from GreyCilik.modules.log_channel import loggable
-from GreyCilik.modules.sql import antiflood_sql as sql
+from Hiroshi.modules.log_channel import loggable
+from Hiroshi.modules.sql import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -22,10 +22,10 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.utils.helpers import mention_html
-from GreyCilik.modules.helper_funcs.string_handling import extract_time
-from GreyCilik.modules.connection import connected
-from GreyCilik.modules.helper_funcs.alternate import send_message
-from GreyCilik.modules.sql.approve_sql import is_approved
+from Hiroshi.modules.helper_funcs.string_handling import extract_time
+from Hiroshi.modules.connection import connected
+from Hiroshi.modules.helper_funcs.alternate import send_message
+from Hiroshi.modules.sql.approve_sql import is_approved
 
 FLOOD_GROUP = 3
 
