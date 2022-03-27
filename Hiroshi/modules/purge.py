@@ -2,8 +2,8 @@ import asyncio
 import time
 from telethon import events
 
-from GreyCilik import telethn
-from GreyCilik.modules.helper_funcs.telethn.chatstatus import (
+from Hiroshi import telethn
+from Hiroshi.modules.helper_funcs.telethn.chatstatus import (
     can_delete_messages,
     user_is_admin,
 )
