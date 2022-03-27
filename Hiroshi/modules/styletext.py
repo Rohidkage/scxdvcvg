@@ -1,6 +1,6 @@
-from GreyCilik import dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.alternate import typing_action
+from Hiroshi import dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.alternate import typing_action
 from telegram import ParseMode
 from telegram.ext import run_async
 
@@ -265,13 +265,13 @@ def cilik(update, context):
         string = "  ".join(args).lower()
 
     if not string:
-        message.reply_text("Usage is `/cilik <text>`", parse_mode=ParseMode.MARKDOWN)
+        message.reply_text("Usage is `/hiroshi <text>`", parse_mode=ParseMode.MARKDOWN)
         return
 
     for normiecharacter in string:
         if normiecharacter in normiefont:
-            cilikcharacter = cilikfont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, cilikcharacter)
+            hiroshicharacter = hiroshifont[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, hiroshicharacter)
 
     if message.reply_to_message:
         message.reply_to_message.reply_text(string)
@@ -288,7 +288,7 @@ FSQUARE_HANDLER = DisableAbleCommandHandler("fsquare", fsquare, run_async=True)
 BLUE_HANDLER = DisableAbleCommandHandler("blue", blue, run_async=True)
 LATIN_HANDLER = DisableAbleCommandHandler("latin", latin, run_async=True)
 LINED_HANDLER = DisableAbleCommandHandler("lined", lined, run_async=True)
-CILIK_HANDLER = DisableAbleCommandHandler("cilik", cilik, run_async=True)
+HIROSHI_HANDLER = DisableAbleCommandHandler("hiroshi", hiroshi, run_async=True)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(BUBBLE_HANDLER)
@@ -298,7 +298,7 @@ dispatcher.add_handler(FSQUARE_HANDLER)
 dispatcher.add_handler(BLUE_HANDLER)
 dispatcher.add_handler(LATIN_HANDLER)
 dispatcher.add_handler(LINED_HANDLER)
-dispatcher.add_handler(CILIK_HANDLER)
+dispatcher.add_handler(HIROSHI_HANDLER)
 
 __command_list__ = ["weebify"]
 __command_list__ = ["bubble"]
@@ -308,7 +308,7 @@ __command_list__ = ["fsquare"]
 __command_list__ = ["blue"]
 __command_list__ = ["latin"]
 __command_list__ = ["lined"]
-__command_list__ = ["cilik"]
+__command_list__ = ["hiroshi"]
 __handlers__ = [WEEBIFY_HANDLER]
 __handlers__ = [BUBBLE_HANDLER]
 __handlers__ = [FBUBBLE_HANDLER]
@@ -317,5 +317,5 @@ __handlers__ = [FSQUARE_HANDLER]
 __handlers__ = [BLUE_HANDLER]
 __handlers__ = [LATIN_HANDLER]
 __handlers__ = [LINED_HANDLER]
-__handlers__ = [CILIK_HANDLER]
+__handlers__ = [HIROSHI_HANDLER]
 
