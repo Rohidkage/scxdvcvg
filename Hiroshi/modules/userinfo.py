@@ -31,7 +31,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
-from GreyCilik import (
+from Hiroshi import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -44,16 +44,16 @@ from GreyCilik import (
     StartTime,
     SUPPORT_CHAT,
 )
-from GreyCilik.__main__ import STATS, TOKEN, USER_INFO
-from GreyCilik.modules.sql import SESSION
-import GreyCilik.modules.sql.userinfo_sql as sql
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.sql.global_bans_sql import is_user_gbanned
-from GreyCilik.modules.sql.afk_sql import is_afk, set_afk
-from GreyCilik.modules.sql.users_sql import get_user_num_chats
-from GreyCilik.modules.helper_funcs.chat_status import sudo_plus
-from GreyCilik.modules.helper_funcs.extraction import extract_user
-from GreyCilik import telethn
+from Hiroshi.__main__ import STATS, TOKEN, USER_INFO
+from Hiroshi.modules.sql import SESSION
+import Hiroshi.modules.sql.userinfo_sql as sql
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.sql.global_bans_sql import is_user_gbanned
+from Hiroshi.modules.sql.afk_sql import is_afk, set_afk
+from Hiroshi.modules.sql.users_sql import get_user_num_chats
+from Hiroshi.modules.helper_funcs.chat_status import sudo_plus
+from Hiroshi.modules.helper_funcs.extraction import extract_user
+from Hiroshi import telethn
 
 def no_by_per(totalhp, percentage):
     """
@@ -268,20 +268,20 @@ def info(update: Update, context: CallbackContext):
 
     text = (
         f"╔═━「<b> Appraisal results:</b> 」\n"
-        f"✪ ID: <code>{user.id}</code>\n"
-        f"✪ First Name: {html.escape(user.first_name)}"
+        f"❒ ID: <code>{user.id}</code>\n"
+        f"❒ First Name: {html.escape(user.first_name)}"
     )
 
     if user.last_name:
-        text += f"\n✪ Last Name: {html.escape(user.last_name)}"
+        text += f"\n❒ Last Name: {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\n✪ Username: @{html.escape(user.username)}"
+        text += f"\n❒ Username: @{html.escape(user.username)}"
 
-    text += f"\n✪ Userlink: {mention_html(user.id, 'link')}"
+    text += f"\n❒ Userlink: {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
-        _stext = "\n✪ Presence: <code>{}</code>"
+        _stext = "\n❒ Presence: <code>{}</code>"
 
         afk_st = is_afk(user.id)
         if afk_st:
@@ -295,7 +295,7 @@ def info(update: Update, context: CallbackContext):
                     text += _stext.format("Detected")
                 elif status in {"administrator", "creator"}:
                     text += _stext.format("Admin")
-    if user_id not in [bot.id, 5094084246, 5066592080]:
+    if user_id not in [bot.id, 5265442986, 1910856699]:
         userhp = hpmanager(user)
         text += f"\n\n<b>Health:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
 
@@ -328,8 +328,8 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
-    elif user.id == 1784606556:
-         text += "\n\nOwner Of A Bot. Queen Of @reyyvbss. Bot Name Inspired From 'JoJo'."
+    elif user.id == 1910856699:
+         text += "\n\nOwner Of A Bot. Queen Of @Bisuinhiro. Bot Name Inspired From 'JoJo'."
          disaster_level_present = True
 
     try:
@@ -366,9 +366,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/CilikProject"),
+                                "Health", url="https://t.me/hiroshimabes"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/CilikProject")
+                                "Disaster", url="https://t.me/hiroshimabes")
                         ],
                     ]
                 ),
@@ -384,9 +384,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/CilikProject"),
+                                "Health", url="https://t.me/hiroshimabes"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/CilikProject")
+                                "Disaster", url="https://t.me/hiroshimabes")
                         ],
                     ]
                 ),
@@ -428,21 +428,21 @@ def about_me(update: Update, context: CallbackContext):
 def set_about_me(update: Update, context: CallbackContext):
     message = update.effective_message
     user_id = message.from_user.id
-    if user_id in [5094084246, 1784606556]:
+    if user_id in [5265442986, 1910856699]:
         message.reply_text("Error! Unauthorized")
         return
     bot = context.bot
     if message.reply_to_message:
         repl_message = message.reply_to_message
         repl_user_id = repl_message.from_user.id
-        if repl_user_id in [bot.id, 5094084246, 1784606556] and (user_id in DEV_USERS):
+        if repl_user_id in [bot.id, 5265442986, 1910856699] and (user_id in DEV_USERS):
             user_id = repl_user_id
     text = message.text
     info = text.split(None, 1)
     if len(info) == 2:
         if len(info[1]) < MAX_MESSAGE_LENGTH // 4:
             sql.set_user_me_info(user_id, info[1])
-            if user_id in [c, 1784606556]:
+            if user_id in [c, 1910856699]:
                 message.reply_text("Authorized...Information updated!")
             elif user_id == bot.id:
                 message.reply_text("I have updated my info with the one you provided!")
@@ -458,7 +458,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "❂ <b>Stats For <a href='https://t.me/GreyCilik_bot'>Grey Cilik</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "❂ <b>Stats For <a href='https://t.me/TurboHiroBot'>Turbo Robot</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(
         result,
@@ -507,7 +507,7 @@ def set_about_bio(update: Update, context: CallbackContext):
             )
             return
 
-        if user_id in [1784606556, 1784606556] and sender_id not in DEV_USERS:
+        if user_id in [1910856699, 1910856699] and sender_id not in DEV_USERS:
             message.reply_text("You are not authorised")
             return
 
@@ -552,32 +552,32 @@ def __user_info__(user_id):
 
 __help__ = """
 *ID:*
-❂ /id*:* get the current group id. If used by replying to a message, gets that user's id.
-❂ /gifid*:* reply to a gif to me to tell you its file ID.
+❒ /id*:* get the current group id. If used by replying to a message, gets that user's id.
+❒ /gifid*:* reply to a gif to me to tell you its file ID.
  
 *Self addded information:* 
-❂ /setme <text>*:* will set your info
-❂ /me*:* will get your or another user's info.
+❒ /setme <text>*:* will set your info
+❒ /me*:* will get your or another user's info.
 Examples:
-❂ /setme I am a wolf.
-❂ /me @username(defaults to yours if no user specified)
+❒ /setme I am a wolf.
+❒ /me @username(defaults to yours if no user specified)
  
 *Information others add on you:* 
-❂ /bio*:* will get your or another user's bio. This cannot be set by yourself.
-❂ /setbio <text>*:* while replying, will save another user's bio 
+❒ /bio*:* will get your or another user's bio. This cannot be set by yourself.
+❒ /setbio <text>*:* while replying, will save another user's bio 
 Examples:
-❂ /bio @username(defaults to yours if not specified).
-❂ /setbio This user is a wolf (reply to the user)
+❒ /bio @username(defaults to yours if not specified).
+❒ /setbio This user is a wolf (reply to the user)
  
 *Overall Information about you:*
-❂ /info*:* get information about a user. 
+❒ /info*:* get information about a user. 
  
 *json Detailed info:*
-❂ /json*:* Get Detailed info about any message.
+❒ /json*:* Get Detailed info about any message.
  
 *AFk:*
 When marked as AFK, any mentions will be replied to with a message stating that you're not available!
-❂ /afk <reason>*:* Mark yourself as AFK.
+❒ /afk <reason>*:* Mark yourself as AFK.
   - brb <reason>: Same as the afk command, but not a command. 
   
 *What is that health thingy?*
