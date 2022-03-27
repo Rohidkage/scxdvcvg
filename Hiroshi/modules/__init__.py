@@ -1,4 +1,4 @@
-from GreyCilik import LOAD, NO_LOAD, LOGGER
+from Hiroshi import LOAD, NO_LOAD, LOGGER
 import sys
 
 
