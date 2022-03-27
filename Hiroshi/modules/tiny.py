@@ -1,8 +1,8 @@
 import os
 import cv2
 from PIL import Image
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot
 
 
 @register(pattern="^/tiny ?(.*)")
@@ -13,7 +13,7 @@ async def _(event):
            return
     kontol = await event.reply("`Processing tiny...`")
     ik = await tbot.download_media(reply)
-    im1 = Image.open("GreyCilik/resources/Grey.png")
+    im1 = Image.open("Hiroshi/resources/Grey.png")
     if ik.endswith(".tgs"):
         await tbot.download_media(reply, "Grey.tgs")
         os.system("lottie_convert.py Grey.tgs json.json")
