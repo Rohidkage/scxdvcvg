@@ -8,10 +8,10 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from GreyCilik import *
+from Hiroshi import *
 
-from GreyCilik import telethn as tbot
-from GreyCilik.events import register
+from Hiroshi import telethn as tbot
+from Hiroshi.events import register
 
 
 async def is_register_admin(chat, user):
