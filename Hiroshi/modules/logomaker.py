@@ -3,8 +3,8 @@ import random
 import glob
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot, ubot2
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot, ubot2
 
 
 def mediainfo(media):
@@ -68,7 +68,7 @@ async def logo_gen(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("./GreyCilik/resources/fonts/*")
+        fpath_ = glob.glob("./Hiroshi/resources/fonts/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -79,7 +79,7 @@ async def logo_gen(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("./GreyCilik/resources/fonts/*")
+        fpath_ = glob.glob("./Hiroshi/resources/fonts/*")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         fnt_size = 120
@@ -113,7 +113,7 @@ async def logo_gen(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Grey Cililk](https://t.me/GreyCilik_bot)",
+            caption="Logo by [Turbo Robot](https://t.me/TurboHiroBot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -121,7 +121,7 @@ async def logo_gen(event):
     if os.path.exists(bg_):
         os.remove(bg_) 
     if os.path.exists(font_):
-        if not font_.startswith("./GreyCilik/resources/fonts"):
+        if not font_.startswith("./Hiroshi/resources/fonts"):
             os.remove(font_)
 
 
@@ -151,7 +151,7 @@ async def logo_(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("./GreyCilik/resources/fonts/*")
+        fpath_ = glob.glob("./Hiroshi/resources/fonts/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -162,7 +162,7 @@ async def logo_(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("./GreyCilik/resources/fonts/*")
+        fpath_ = glob.glob("./Hiroshi/resources/fonts/*")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         fnt_size = 105
@@ -196,7 +196,7 @@ async def logo_(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Grey Cilik](https://t.me/GreyCilik_bot)",
+            caption="Logo by [Turbo Robot](https://t.me/TurboHiroBot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -204,7 +204,7 @@ async def logo_(event):
     if os.path.exists(bg_):
         os.remove(bg_) 
     if os.path.exists(font_):
-        if not font_.startswith("./GreyCilik/resources/fonts"):
+        if not font_.startswith("./Hiroshi/resources/fonts"):
             os.remove(font_)
 
 
@@ -234,7 +234,7 @@ async def logo_gen(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("./GreyCilik/resources/fonts/*")
+        fpath_ = glob.glob("./Hiroshi/resources/fonts/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -245,7 +245,7 @@ async def logo_gen(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("./GreyCilik/resources/fonts/*")
+        fpath_ = glob.glob("./Hiroshi/resources/fonts/*")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         fnt_size = 120
@@ -279,7 +279,7 @@ async def logo_gen(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Grey Cililk](https://t.me/GreyCilik_bot)",
+            caption="Logo by [Turbo Robot](https://t.me/TurboHiroBot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -287,16 +287,16 @@ async def logo_gen(event):
     if os.path.exists(bg_):
         os.remove(bg_) 
     if os.path.exists(font_):
-        if not font_.startswith("./GreyCilik/resources/fonts"):
+        if not font_.startswith("./Hiroshi/resources/fonts"):
             os.remove(font_)
 
             
 __mod_name__ = "Logomaker"
 
 __help__ = """ This is help menu for logomaker
-❂ /logo <text/name> - Create a logo with random view.
-❂ /wlogo <text/name> - Create a logo with wide view only.
+✮ /logo <text/name> - Create a logo with random view.
+✮ /wlogo <text/name> - Create a logo with wide view only.
  Image Editor :
-❂ /slogo <text/name> - Buat logo pake foto cewek
-❂  /edit <reply photo> - to edit image.
+✮ /slogo <text/name> - Buat logo pake foto cewek
+✮  /edit <reply photo> - to edit image.
 """
