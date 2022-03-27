@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from GreyCilik.modules.sql import SESSION, BASE
+from Hiroshi.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):
