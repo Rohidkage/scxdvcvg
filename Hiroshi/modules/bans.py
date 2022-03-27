@@ -19,10 +19,10 @@ from telegram.utils.helpers import mention_html
 from typing import Optional, List
 from telegram import TelegramError
 
-import GreyCilik.modules.sql.users_sql as sql
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.filters import CustomFilters
-from GreyCilik import (
+import Hiroshi.modules.sql.users_sql as sql
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.filters import CustomFilters
+from Hiroshi import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
@@ -32,7 +32,7 @@ from GreyCilik import (
     WOLVES,
     dispatcher,
 )
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi.modules.helper_funcs.chat_status import (
     user_admin_no_reply,
     bot_admin,
     can_restrict,
@@ -45,9 +45,9 @@ from GreyCilik.modules.helper_funcs.chat_status import (
     can_delete,
     dev_plus,
 )
-from GreyCilik.modules.helper_funcs.extraction import extract_user_and_text
-from GreyCilik.modules.helper_funcs.string_handling import extract_time
-from GreyCilik.modules.log_channel import gloggable, loggable
+from Hiroshi.modules.helper_funcs.extraction import extract_user_and_text
+from Hiroshi.modules.helper_funcs.string_handling import extract_time
+from Hiroshi.modules.log_channel import gloggable, loggable
 
 
 @connection_status
@@ -554,17 +554,17 @@ __help__ = """
 
 *Admins only:*
 
-❂ /ban <userhandle>*:* bans a user. (via handle, or reply)
-❂ /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
-❂ /tban <userhandle> x(m/h/d)*:* bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unban <userhandle>*:* unbans a user. (via handle, or reply)
-❂ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
-❂ /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
-❂ /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
-❂ /zombies*:* searches deleted accounts
-❂ /zombies clean*:* removes deleted accounts from the group.
-❂ /snipe <chatid> <string>*:* Make me send a message to a specific chat.
+✮ /ban <userhandle>*:* bans a user. (via handle, or reply)
+✮ /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
+✮ /tban <userhandle> x(m/h/d)*:* bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+✮ /unban <userhandle>*:* unbans a user. (via handle, or reply)
+✮ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
+✮ /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
+✮ /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+✮ /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
+✮ /zombies*:* searches deleted accounts
+✮ /zombies clean*:* removes deleted accounts from the group.
+✮ /snipe <chatid> <string>*:* Make me send a message to a specific chat.
 """
 
 
