@@ -1,12 +1,12 @@
 import random, html
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.disable import (
+from Hiroshi import dispatcher
+from Hiroshi.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from GreyCilik.modules.sql import afk_sql as sql
-from GreyCilik.modules.users import get_user_id
+from Hiroshi.modules.sql import afk_sql as sql
+from Hiroshi.modules.users import get_user_id
 from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
