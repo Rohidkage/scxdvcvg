@@ -81,10 +81,10 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ───「[ʜɪʀᴏsʜɪ ʀᴏʙᴏᴛ](https://t.me/HiroshiMusicBot)」───
+ ───「[ᴛᴜʀʙᴏ ʀᴏʙᴏᴛ](https://t.me/TurboHiroBot)」───
 *Hello {} !*
 ────────────────────
-ʜɪʀᴏsʜɪ ʀᴏʙᴏᴛ ᴀ ᴘᴏᴡᴇʀғᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ!
+ᴛᴜʀʙᴏ ʀᴏʙᴏᴛ ᴀ ᴘᴏᴡᴇʀғᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ!
 ────────────────────
 ʜɪᴛ ᴛʜᴇ /help ᴏʀ ᴛᴀᴘ ᴏɴ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅ ᴏɴ ᴍᴇ.
 """
@@ -92,7 +92,7 @@ PM_START_TEXT = """
 buttons = [
         [
         InlineKeyboardButton(
-            text="+ ᴀᴅᴅ ʜɪʀᴏsʜɪ-ʀᴏʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url="t.me/HiroshiMusicBot?startgroup=true"
+            text="+ ᴀᴅᴅ ʜɪʀᴏsʜɪ-ʀᴏʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url="t.me/TurboHiroBot?startgroup=true"
         ),
     ],
     [
@@ -114,10 +114,10 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-PRIME_IMG = "https://telegra.ph/file/4b49392b7d0e8c6a408e8.jpg"
+PRIME_IMG = "https://telegra.ph/file/a812161d0dc1c7500762d.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @Bisubiarenak \
+ You can support the project by contacting @Bisuinhiro \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -132,7 +132,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("GreyCilik.modules." + module_name)
+    imported_module = importlib.import_module("Hiroshi.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -233,7 +233,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"<b>Hi I'm Hiroshi!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
+            f"<b>Hi I'm Turbo Robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
             parse_mode=ParseMode.HTML
        )
 
@@ -412,7 +412,7 @@ def prime_about_callback(update, context):
     elif query.data == "prime_admin":
         query.message.edit_text(
             text=f"*❒ Let's make your group bit effective now*"
-            "\nCongragulations, Hiroshi Robot now ready to manage your group."
+            "\nCongragulations, Turbo Robot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -460,12 +460,12 @@ def prime_about_callback(update, context):
     elif query.data == "prime_credit":
         query.message.edit_text(
             text=f"<b>❒ Credis for Hiroshi</b>\n"
-            f"\nHere Developers Making The Grey Cilik",
+            f"\nHere Developers Making The Hiroshi Robot",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Hiroshi", url="t.me/Bisubiarenak"),
+                    InlineKeyboardButton(text="Hiro", url="t.me/Bisuinhiro"),
                     InlineKeyboardButton(text="Tonic", url="t.me/Bukan_guudlooking"),
                     InlineKeyboardButton(text="Grey", url="t.me/greyyvbss"),
                  ],
@@ -745,7 +745,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1821140802:
+        if OWNER_ID != 1910856699:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
@@ -794,7 +794,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**Hiroshi Robot Started!**
+                f"""**Turbo Robot Started!**
 
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
