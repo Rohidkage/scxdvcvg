@@ -1,7 +1,7 @@
 import random
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
+from Hiroshi import dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext
 
