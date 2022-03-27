@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Numeric, Boolean
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi.modules.sql import BASE, SESSION
 
 
 class forceSubscribe(BASE):
