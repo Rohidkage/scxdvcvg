@@ -20,10 +20,10 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from GreyCilik import *
+from Hiroshi import *
 
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36"
@@ -268,7 +268,7 @@ async def apk(e):
             + app_link
             + "'>View in Play Store</a>"
         )
-        app_details += "\n\n===> Grey <==="
+        app_details += "\n\n===> Hiroshi <==="
         await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
         await e.reply("No result found in search. Please enter **Valid app name**")
@@ -279,14 +279,14 @@ async def apk(e):
 __mod_name__ = "Search"
 
 __help__ = """
-❂ /google <query>*:* Perform a google search
-❂ /image <query>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
-❂ /app <appname>*:* Searches for an app in Play Store and returns its details.
-❂ /reverse: Does a reverse image search of the media which it was replied to.
-❂ /gps <location>*:* Get gps location.
-❂ /github <username>*:* Get information about a GitHub user.
-❂ /country <country name>*:* Gathering info about given country
-❂ /imdb <Movie name>*:* Get full info about a movie with imdb.com
-❂ Grey <query>*:* Grey answers the query
-  💡Ex: `Grey where is Japan?`
+✮ /google <query>*:* Perform a google search
+✮ /image <query>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
+✮ /app <appname>*:* Searches for an app in Play Store and returns its details.
+✮ /reverse: Does a reverse image search of the media which it was replied to.
+✮ /gps <location>*:* Get gps location.
+✮ /github <username>*:* Get information about a GitHub user.
+✮ /country <country name>*:* Gathering info about given country
+✮ /imdb <Movie name>*:* Get full info about a movie with imdb.com
+✮ Hiroshi <query>*:* Turbo answers the query
+  🔥 Hiro: `Turbo where is Japan?`
 """
