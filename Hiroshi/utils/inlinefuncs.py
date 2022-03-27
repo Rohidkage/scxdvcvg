@@ -121,19 +121,19 @@ async def alive_function(answers):
     bot_state = "Dead" if not await app.get_me() else "Alive"
     ubot_state = "Dead" if not await ubot2.get_me() else "Alive"
     buttons.add(
-        InlineKeyboardButton("Main bot", url="https://t.me/HiroshiMusicBot"),
+        InlineKeyboardButton("Main bot", url="https://t.me/TurboHiroBot"),
         InlineKeyboardButton("Go Inline!", switch_inline_query_current_chat=""),
     )
 
     msg = f"""
-**[Hiroshi Robot ✨](https://t.me/HiroshiMusicBot):**
+**[Turbo Robot ✨](https://t.me/TurboHiroBot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `{ubot_state}`
 **Python:** `{pyver.split()[0]}`
 **Pyrogram:** `{pyrover}`
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/Bisubiarenak)
+**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/Bisuinhiro)
 """
     answers.append(
         InlineQueryResultArticle(
@@ -431,8 +431,8 @@ async def tg_search_func(answers, text, user_id):
 
 
 async def music_inline_func(answers, query):
-    chat_id = -1001445180719
-    group_invite = "https://t.me/joinchat/vSDE2DuGK4Y4Nzll"
+    chat_id = -1001676791593
+    group_invite = "https://t.me/joinchat/+XR5e4RHW4mpkZDY9"
     try:
         messages = [
             m
