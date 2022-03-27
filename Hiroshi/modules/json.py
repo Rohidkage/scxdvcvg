@@ -1,6 +1,6 @@
 import io
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot
 from telethon import types
 from telethon import events
 from telethon.tl import functions
