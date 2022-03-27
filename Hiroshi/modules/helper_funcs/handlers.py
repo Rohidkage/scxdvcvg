@@ -1,6 +1,6 @@
-import GreyCilik.modules.sql.blacklistusers_sql as sql
-from GreyCilik import ALLOW_EXCL
-from GreyCilik import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
+import Hiroshi.modules.sql.blacklistusers_sql as sql
+from Hiroshi import ALLOW_EXCL
+from Hiroshi import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
 
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
