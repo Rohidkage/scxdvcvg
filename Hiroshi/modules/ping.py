@@ -5,9 +5,9 @@ import requests
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 
-from GreyCilik import StartTime, dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import sudo_plus
-from GreyCilik.modules.disable import DisableAbleCommandHandler
+from Hiroshi import StartTime, dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import sudo_plus
+from Hiroshi.modules.disable import DisableAbleCommandHandler
 
 sites_list = {
     "Telegram": "https://api.telegram.org",
