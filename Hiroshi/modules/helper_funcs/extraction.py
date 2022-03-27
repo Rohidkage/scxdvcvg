@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from GreyCilik import LOGGER
-from GreyCilik.modules.users import get_user_id
+from Hiroshi import LOGGER
+from Hiroshi.modules.users import get_user_id
 from telegram import Message, MessageEntity
 from telegram.error import BadRequest
 
