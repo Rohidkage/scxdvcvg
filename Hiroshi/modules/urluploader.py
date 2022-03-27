@@ -3,7 +3,7 @@ import time
 
 import aiohttp
 
-from GreyCilik.utils.uputils import humanbytes, time_formatter
+from Hiroshi.utils.uputils import humanbytes, time_formatter
 
 
 async def download_file(url, file_name, message, start_time, bot):
@@ -27,8 +27,7 @@ async def download_coroutine(session, url, file_name, event, start, bot):
             """**Initiating Download**
 **URL:** {}
 **File Name:** {}
-**File Size:** {}
-**© @GreyCilikbot**""".format(
+**File Size:** {pTurboHiroBot**""".format(
                 url,
                 os.path.basename(file_name).replace("%20", " "),
                 humanbytes(total_length),
