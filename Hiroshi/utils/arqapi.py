@@ -14,8 +14,8 @@ from search_engine_parser import GoogleSearch
 from Hiroshi import BOT_ID, OWNER_ID, ARQ_API_URL, ARQ_API_KEY
 from Hiroshi import pbot
 
-ARQ_API = "ZGPZGV-FMRMJD-XWBQPR-HSBNRZ-ARQ"
-ARQ_API_KEY = "ZGPZGV-FMRMJD-XWBQPR-HSBNRZ-ARQ"
+ARQ_API = "JGAGDG-PMBLVJ-NXPSKF-BMCCDF-ARQ"
+ARQ_API_KEY = "JGAGDG-PMBLVJ-NXPSKF-BMCCDF-ARQ"
 SUDOERS = OWNER_ID
 ARQ_API_URL = "https://thearq.tech"
 
