@@ -5,9 +5,9 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from GreyCilik import DRAGONS, dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi import DRAGONS, dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -16,16 +16,16 @@ from GreyCilik.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from GreyCilik.modules.helper_funcs.admin_rights import (
+from Hiroshi.modules.helper_funcs.admin_rights import (
     user_can_changeinfo,
     user_can_promote,
 )
-from GreyCilik.modules.helper_funcs.extraction import (
+from Hiroshi.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from GreyCilik.modules.log_channel import loggable
-from GreyCilik.modules.helper_funcs.alternate import send_message
+from Hiroshi.modules.log_channel import loggable
+from Hiroshi.modules.helper_funcs.alternate import send_message
 
 
 @bot_admin
@@ -934,26 +934,26 @@ __help__ = """
 ❂ /pinned*:* to get the current pinned message.
 
 *The Following Commands are Admins only:* 
-❂ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
-❂ /unpin*:* unpins the currently pinned message
-❂ /invitelink*:* gets invitelink
-❂ /promote*:* promotes the user replied to
-❂ /fullpromote*:* promotes the user replied to with full rights
-❂ /demote*:* demotes the user replied to
-❂ /title <title here>*:* sets a custom title for an admin that the bot promoted
-❂ /admincache*:* force refresh the admins list
-❂ /del*:* deletes the message you replied to
-❂ /purge*:* deletes all messages between this and the replied to message.
-❂ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
-❂ /setgtitle <text>*:* set group title
-❂ /setgpic*:* reply to an image to set as group photo
-❂ /setdesc*:* Set group description
-❂ /setsticker*:* Set group sticker
+✮ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
+✮ /unpin*:* unpins the currently pinned message
+✮ /invitelink*:* gets invitelink
+✮ /promote*:* promotes the user replied to
+✮ /fullpromote*:* promotes the user replied to with full rights
+✮ /demote*:* demotes the user replied to
+✮ /title <title here>*:* sets a custom title for an admin that the bot promoted
+✮ /admincache*:* force refresh the admins list
+✮ /del*:* deletes the message you replied to
+✮ /purge*:* deletes all messages between this and the replied to message.
+✮ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
+✮ /setgtitle <text>*:* set group title
+✮ /setgpic*:* reply to an image to set as group photo
+✮ /setdesc*:* Set group description
+✮ /setsticker*:* Set group sticker
 
 *Rules*:
-❂ /rules*:* get the rules for this chat.
-❂ /setrules <your rules here>*:* set the rules for this chat.
-❂ /clearrules*:* clear the rules for this chat.
+✮ /rules*:* get the rules for this chat.
+✮ /setrules <your rules here>*:* set the rules for this chat.
+✮ /clearrules*:* clear the rules for this chat.
 """
 
 SET_DESC_HANDLER = CommandHandler(
