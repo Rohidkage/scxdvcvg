@@ -5,8 +5,8 @@ from telethon import events
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 
-from GreyCilik import telethn, dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import dev_plus
+from Hiroshi import telethn, dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import dev_plus
 
 DEBUG_MODE = False
 
