@@ -10,12 +10,12 @@ from pyrogram.types import (
     Message,
 )
 
-from GreyCilik import pbot as Client
-from GreyCilik import (
+from Hiroshi import pbot as Client
+from Hiroshi import (
     OWNER_ID as owner,
     SUPPORT_CHAT as log,
 )
-from GreyCilik.utils.errors import capture_err
+from Hiroshi.utils.errors import capture_err
 
 
 def content(msg: Message) -> [None, str]:
@@ -46,10 +46,10 @@ async def bug(_, msg: Message):
     datetimes_fmt = "%d-%m-%Y"
     datetimes = datetime.utcnow().strftime(datetimes_fmt)
 
-    thumb = "https://telegra.ph/file/22d7181751473eb2a49df.jpg"
+    thumb = "https://telegra.ph/file/91d996acbce4283dc1c6b.jpg"
     
     bug_report = f"""
-**#BUG : ** **[Master](https://t.me/greyyvbss)**
+**#BUG : ** **[Master](https://t.me/Bisuinhiro)**
 **From User : ** **{mention}**
 **User ID : ** **{user_id}**
 **Group : ** **{chat_username}**
