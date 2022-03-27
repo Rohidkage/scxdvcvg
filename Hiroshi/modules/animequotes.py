@@ -4,9 +4,9 @@ import html
 import random
 import time
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.chat_status import (is_user_admin)
+from Hiroshi import dispatcher
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.chat_status import (is_user_admin)
 from telegram.ext import (
   CallbackContext,
   CommandHandler,
