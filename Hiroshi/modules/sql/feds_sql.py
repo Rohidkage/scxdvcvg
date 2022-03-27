@@ -1,8 +1,8 @@
 import ast
 import threading
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi import dispatcher
+from Hiroshi.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
 from telegram.error import BadRequest, Unauthorized
