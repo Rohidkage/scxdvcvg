@@ -5,10 +5,10 @@ import sys
 from contextlib import suppress
 from time import sleep
 
-import GreyCilik
+import Hiroshi
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import dev_plus
+from Hiroshi import dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import dev_plus
 from telegram import TelegramError, Update
 from telegram.error import Unauthorized
 from telegram.ext import CallbackContext, CommandHandler
