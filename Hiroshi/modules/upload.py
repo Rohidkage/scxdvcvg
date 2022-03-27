@@ -7,9 +7,9 @@ import traceback
 import aiohttp
 from telethon import events
 
-from GreyCilik import telethn as bot
-from GreyCilik.modules.urluploader import download_file
-from GreyCilik.utils.uputils import humanbytes, progress
+from Hiroshi import telethn as bot
+from Hiroshi.modules.urluploader import download_file
+from Hiroshi.utils.uputils import humanbytes, progress
 
 DOWNLOADPATH = "Downloads/"
 
@@ -83,7 +83,7 @@ async def tsh(event):
 
             str(time.time() - start)
             await orta.edit(
-                f"File Successfully Uploaded to TransferSh.\n\nLink 👉 {download_link}\nExpired Date 👉 {final_date}\n\nUploaded by @GreyCilikbot"
+                f"File Successfully Uploaded to TransferSh.\n\nLink 👉 {download_link}\nExpired Date 👉 {final_date}\n\nUploaded by @TurboHiroBot"
             )
         except Exception as e:
             traceback.print_exc()
@@ -118,7 +118,7 @@ async def tmp(event):
 
             str(time.time() - start)
             await orta.edit(
-                f"File Successfully Uploaded to TmpNinja.\n\nLink 👉 {download_link}\n\nUploaded by @GreyCilikbot"
+                f"File Successfully Uploaded to TmpNinja.\n\nLink 👉 {download_link}\n\nUploaded by @TurboHiroBot"
             )
         except Exception as e:
             traceback.print_exc()
@@ -159,7 +159,7 @@ async def up(event):
                 event.chat.id,
                 dosya,
                 force_document=True,
-                caption=f"Uploaded By @GreyCilikbot",
+                caption=f"Uploaded By @TurboHiroBot",
             )
         except Exception as e:
             traceback.print_exc()
