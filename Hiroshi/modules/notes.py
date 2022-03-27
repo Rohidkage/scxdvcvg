@@ -3,14 +3,14 @@ from io import BytesIO
 import random
 from typing import Optional
 
-import GreyCilik.modules.sql.notes_sql as sql
-from GreyCilik import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.handlers import MessageHandlerChecker
-from GreyCilik.modules.helper_funcs.chat_status import user_admin, connection_status
-from GreyCilik.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from GreyCilik.modules.helper_funcs.msg_types import get_note_type
-from GreyCilik.modules.helper_funcs.string_handling import (
+import Hiroshi.modules.sql.notes_sql as sql
+from Hiroshi import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.handlers import MessageHandlerChecker
+from Hiroshi.modules.helper_funcs.chat_status import user_admin, connection_status
+from Hiroshi.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from Hiroshi.modules.helper_funcs.msg_types import get_note_type
+from Hiroshi.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
 )
 from telegram import (
@@ -548,17 +548,17 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-❂ /get <notename>*:* get the note with this notename
-❂ #<notename>*:* same as /get
-❂ /notes or /saved*:* list all saved notes in this chat
-❂ /number *:* Will pull the note of that number in the list
+✮ /get <notename>*:* get the note with this notename
+✮ #<notename>*:* same as /get
+✮ /notes or /saved*:* list all saved notes in this chat
+✮ /number *:* Will pull the note of that number in the list
 If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can \
 be useful when updating a current note
 *Admins only:*
-❂ •/save <notename> <notedata>*:* saves notedata as a note with name notename
+✮ •/save <notename> <notedata>*:* saves notedata as a note with name notename
 A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a \
 `buttonurl:` section, as such: `[somelink](buttonurl:example.com)`. Check `/markdownhelp` for more info
-❂ /save <notename>*:* save the replied message as a note with name notename
+✮ /save <notename>*:* save the replied message as a note with name notename
  Separate diff replies by `%%%` to get random notes
  *Example:*
  `/save notename
@@ -567,8 +567,8 @@ A button can be added to a note by using standard markdown link syntax - the lin
  Reply 2
  %%%
  Reply 3`
-❂ /clear <notename>*:* clear note with this name
-❂ /removeallnotes*:* removes all notes from the group
+✮ /clear <notename>*:* clear note with this name
+✮ /removeallnotes*:* removes all notes from the group
  *Note:* Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
 """
 
