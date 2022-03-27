@@ -28,11 +28,11 @@ from telegram.ext import (
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
-import GreyCilik.modules.sql.chatbot_sql as sql
-from GreyCilik.modules.helper_funcs.filters import CustomFilters
-from GreyCilik.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from GreyCilik import dispatcher, updater, SUPPORT_CHAT
-from GreyCilik.modules.log_channel import gloggable
+import Hiroshi.modules.sql.chatbot_sql as sql
+from Hiroshi.modules.helper_funcs.filters import CustomFilters
+from Hiroshi.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from Hiroshi import dispatcher, updater, SUPPORT_CHAT
+from Hiroshi.modules.log_channel import gloggable
 
 
 @user_admin_no_reply
@@ -54,7 +54,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Grey Chatbot disable by {}.".format(
+                "turbo Chatbot disable by {}.".format(
                     mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
@@ -146,7 +146,7 @@ def chatbot(update: Update, context: CallbackContext):
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
-    text = "<b>GreyCilik Enabled Chats</b>\n"
+    text = "<b>Turbo Robot Enabled Chats</b>\n"
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
