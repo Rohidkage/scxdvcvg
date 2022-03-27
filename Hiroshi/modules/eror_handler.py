@@ -6,7 +6,7 @@ import random
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CallbackContext, CommandHandler
 
-from GreyCilik import (
+from Hiroshi import (
   dispatcher,
   DEV_USERS,
   OWNER_ID,
