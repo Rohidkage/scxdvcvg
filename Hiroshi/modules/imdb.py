@@ -1,11 +1,11 @@
-from GreyCilik import telethn as tbot
+from Hiroshi import telethn as tbot
 import os
 import re
 import bs4
 import requests
 from telethon import types
 from telethon.tl import functions
-from GreyCilik.events import register
+from Hiroshi.events import register
 
 langi = "en"
 
