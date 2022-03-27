@@ -6,9 +6,9 @@ import requests
 from telethon import types
 from telethon.tl import functions
 
-from GreyCilik import REM_BG_API_KEY
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot
+from Hiroshi import REM_BG_API_KEY
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot
 
 REM_BG_API_KEY = "REM_BG_API_KEY"
 TEMP_DOWNLOAD_DIRECTORY = "./"
@@ -75,7 +75,7 @@ async def _(event):
         await event.reply("Background Removed in {} seconds".format(ms))
     else:
         await event.reply(
-            "remove.bg API returned Errors. Please report to @greynihsupport\n`{}".format(
+            "remove.bg API returned Errors. Please report to @hiroshisupport\n`{}".format(
                 output_file_name.content.decode("UTF-8")
             )
         )
