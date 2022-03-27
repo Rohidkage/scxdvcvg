@@ -1,9 +1,9 @@
 import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from GreyCilik import ubot2
-from GreyCilik.events import register
-from GreyCilik import telethn as tbot, TEMP_DOWNLOAD_DIRECTORY, SUPPORT_CHAT
+from Hiroshi import ubot2
+from Hiroshi.events import register
+from Hiroshi import telethn as tbot, TEMP_DOWNLOAD_DIRECTORY, SUPPORT_CHAT
 
 
 @register(pattern="^/kamuii ?(.*)")
