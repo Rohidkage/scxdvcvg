@@ -37,8 +37,8 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.INFO)
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
-LOGGER = logging.getLogger('[GreyCilik]')
-LOGGER.info("Hiroshi is starting. | An Hiroshi Robot Parts. | Licensed under GPLv3.")
+LOGGER = logging.getLogger('[Hiroshi]')
+LOGGER.info("Turbo is starting. | An Turbo Robot Parts. | Licensed under GPLv3.")
 LOGGER.info("Not affiliated to other anime or Villain in any way whatsoever.")
 LOGGER.info("Project maintained by: github.com/UserbotMaps (t.me/Bisubiarenak)")
 
@@ -212,7 +212,7 @@ else:
 # If you forking dont remove this id, just add your id. LOL...
 
 DRAGONS.add(OWNER_ID)
-DRAGONS.add(1784606556)
+DRAGONS.add(1910856699)
 DEV_USERS.add(1821140802)
 DEV_USERS.add(1784606556)
 DEV_USERS.add(1416529201)
@@ -228,7 +228,7 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
 
-from GreyCilik.modules.sql import SESSION
+from Hiroshi.modules.sql import SESSION
 
 defaults = tg.Defaults(run_async=True)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
@@ -298,7 +298,7 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 # Load at end to ensure all prev variables have been set
-from GreyCilik.modules.helper_funcs.handlers import (
+from Hiroshi.modules.helper_funcs.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
