@@ -1,4 +1,4 @@
-from GreyCilik import DEV_USERS, DRAGONS, DEMONS
+from Hiroshi import DEV_USERS, DRAGONS, DEMONS
 from telegram import Message
 from telegram.ext import MessageFilter
 
