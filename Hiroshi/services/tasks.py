@@ -2,8 +2,8 @@ from asyncio import Lock, create_task
 from time import time
 from pyrogram import filters
 from pyrogram.types import Message
-from GreyCilik import BOT_ID, BOT_USERNAME, DEV_USERS
-from GreyCilik.services.sections import bold, section, w
+from Hiroshi import BOT_ID, BOT_USERNAME, DEV_USERS
+from Hiroshi.services.sections import bold, section, w
 
 tasks = {}
 TASKS_LOCK = Lock()
