@@ -2,8 +2,8 @@ import random
 import threading
 from typing import Union
 
-from GreyCilik.modules.helper_funcs.msg_types import Types
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi.modules.helper_funcs.msg_types import Types
+from Hiroshi.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
 
