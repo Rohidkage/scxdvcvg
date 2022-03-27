@@ -9,20 +9,20 @@ from telegram.utils.helpers import mention_html
 
 from alphabet_detector import AlphabetDetector
 
-import GreyCilik.modules.sql.locks_sql as sql
-from GreyCilik import dispatcher, DRAGONS, LOGGER
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.chat_status import (
+import Hiroshi.modules.sql.locks_sql as sql
+from Hiroshi import dispatcher, DRAGONS, LOGGER
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.chat_status import (
     can_delete,
     is_user_admin,
     user_not_admin,
     is_bot_admin,
     user_admin,
 )
-from GreyCilik.modules.log_channel import loggable
-from GreyCilik.modules.connection import connected
-from GreyCilik.modules.sql.approve_sql import is_approved
-from GreyCilik.modules.helper_funcs.alternate import send_message, typing_action
+from Hiroshi.modules.log_channel import loggable
+from Hiroshi.modules.connection import connected
+from Hiroshi.modules.sql.approve_sql import is_approved
+from Hiroshi.modules.helper_funcs.alternate import send_message, typing_action
 
 ad = AlphabetDetector()
 
