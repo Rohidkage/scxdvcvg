@@ -1,14 +1,14 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from GreyCilik import telethn as tbot
-from GreyCilik.events import register
-from GreyCilik import ubot2 as ubot
+from Hiroshi import telethn as tbot
+from Hiroshi.events import register
+from Hiroshi import ubot2 as ubot
 from asyncio.exceptions import TimeoutError
 
 
 @register(pattern="^/sg ?(.*)")
 async def lastname(steal):
     steal.pattern_match.group(1)
-    puki = await steal.reply("```Lu Siapa Si Ngentot..```")
+    puki = await steal.reply("```Lah Lu Siapa Si Ngentot..```")
     if steal.fwd_from:
         return
     if not steal.reply_to_msg_id:
@@ -30,7 +30,7 @@ async def lastname(steal):
                 response = await conv.get_response()
             except YouBlockedUserError:
                 await steal.reply(
-                    "```Error, report to @CilikSupport```"
+                    "```Error, report to @hiroshiupport```"
                 )
                 return
             if r.text.startswith("Name"):
