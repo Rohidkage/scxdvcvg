@@ -1,7 +1,7 @@
 from datetime import datetime
 from functools import wraps
 from telegram.ext import CallbackContext
-from GreyCilik.modules.helper_funcs.misc import is_module_loaded
+from Hiroshi.modules.helper_funcs.misc import is_module_loaded
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
@@ -15,13 +15,13 @@ if is_module_loaded(FILENAME):
     )
     from telegram.utils.helpers import escape_markdown
 
-    from GreyCilik import (
+    from Hiroshi import (
       EVENT_LOGS,
       LOGGER,
       dispatcher,
     )
-    from GreyCilik.modules.helper_funcs.chat_status import user_admin
-    from GreyCilik.modules.sql import log_channel_sql as sql
+    from Hiroshi.modules.helper_funcs.chat_status import user_admin
+    from Hiroshi.modules.sql import log_channel_sql as sql
 
     def loggable(func):
         @wraps(func)
@@ -198,9 +198,9 @@ if is_module_loaded(FILENAME):
 
     __help__ = """
 ──「 Log channel 」──
-❂ /logchannel*:* get log channel info
-❂ /setlog*:* set the log channel.
-❂ /unsetlog*:* unset the log channel.
+✮ /logchannel*:* get log channel info
+✮ /setlog*:* set the log channel.
+✮ /unsetlog*:* unset the log channel.
 *Setting the log channel is done by*:
 ➩ adding the bot to the desired channel (as an admin!)
 ➩ sending /setlog in the channel
