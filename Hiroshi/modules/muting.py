@@ -2,8 +2,8 @@ import html
 import re
 from typing import Optional
 
-from GreyCilik import LOGGER, TIGERS, dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi import LOGGER, TIGERS, dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
@@ -11,12 +11,12 @@ from GreyCilik.modules.helper_funcs.chat_status import (
     user_admin,
     user_admin_no_reply,
 )
-from GreyCilik.modules.helper_funcs.extraction import (
+from Hiroshi.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from GreyCilik.modules.helper_funcs.string_handling import extract_time
-from GreyCilik.modules.log_channel import loggable
+from Hiroshi.modules.helper_funcs.string_handling import extract_time
+from Hiroshi.modules.log_channel import loggable
 from telegram import (
     Bot, 
     Chat, 
