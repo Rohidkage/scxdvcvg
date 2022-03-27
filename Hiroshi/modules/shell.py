@@ -1,7 +1,7 @@
 import subprocess
 
-from GreyCilik import LOGGER, dispatcher
-from GreyCilik.modules.helper_funcs.chat_status import dev_plus
+from Hiroshi import LOGGER, dispatcher
+from Hiroshi.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
