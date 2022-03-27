@@ -4,9 +4,9 @@ from pyrogram import __version__ as z
 from telethon import __version__ as s
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from GreyCilik import pbot
-from GreyCilik.utils.errors import capture_err
-from GreyCilik.utils.functions import make_carbon
+from Hiroshi import pbot
+from Hiroshi.utils.errors import capture_err
+from Hiroshi.utils.functions import make_carbon
 
 
 @pbot.on_message(filters.command("carbon"))
@@ -27,8 +27,8 @@ async def carbon_func(_, message):
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_text(
-        f"""✨ **Hey I'm Grey Cilik** 
-**Owner repo : [Grey](https://t.me/greyyvbss)**
+        f"""✨ **Hey I'm Turbo Robot** 
+**Owner repo : [Hiro](https://t.me/Bisuinhiro)**
 **Python Version :** `{y()}`
 **Library Version :** `{o}`
 **Telethon Version :** `{s}`
@@ -38,8 +38,8 @@ async def repo(_, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Repo", url="https://github.com/grey423/GreyCilik"), 
-                    InlineKeyboardButton("Support", url="https://t.me/CilikSupport")
+                    InlineKeyboardButton("Repo", url="https://github.com/UserbotMaps/Hiroshi"), 
+                    InlineKeyboardButton("Support", url="https://t.me/hiroshisupport")
                 ]
             ]
         ),
