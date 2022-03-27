@@ -1,17 +1,17 @@
 import html
 from typing import Optional
 
-import GreyCilik.modules.sql.blsticker_sql as sql
-from GreyCilik import LOGGER, dispatcher
-from GreyCilik.modules.connection import connected
-from GreyCilik.modules.disable import DisableAbleCommandHandler
-from GreyCilik.modules.helper_funcs.alternate import send_message
-from GreyCilik.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from GreyCilik.modules.helper_funcs.misc import split_message
-from GreyCilik.modules.helper_funcs.string_handling import extract_time
+import Hiroshi.modules.sql.blsticker_sql as sql
+from Hiroshi import LOGGER, dispatcher
+from Hiroshi.modules.connection import connected
+from Hiroshi.modules.disable import DisableAbleCommandHandler
+from Hiroshi.modules.helper_funcs.alternate import send_message
+from Hiroshi.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Hiroshi.modules.helper_funcs.misc import split_message
+from Hiroshi.modules.helper_funcs.string_handling import extract_time
 
-from GreyCilik.modules.log_channel import loggable
-from GreyCilik.modules.warns import warn
+from Hiroshi.modules.log_channel import loggable
+from Hiroshi.modules.warns import warn
 from telegram import Chat, Message, ParseMode, Update, User, ChatPermissions
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
