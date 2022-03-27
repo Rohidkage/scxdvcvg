@@ -1,8 +1,8 @@
 import importlib
 import collections
 
-from GreyCilik import dispatcher, telethn
-from GreyCilik.__main__ import (
+from Hiroshi import dispatcher, telethn
+from Hiroshi.__main__ import (
     CHAT_SETTINGS,
     DATA_EXPORT,
     DATA_IMPORT,
@@ -13,7 +13,7 @@ from GreyCilik.__main__ import (
     USER_INFO,
     USER_SETTINGS,
 )
-from GreyCilik.modules.helper_funcs.chat_status import dev_plus, sudo_plus
+from Hiroshi.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler
 
