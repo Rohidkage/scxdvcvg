@@ -5,10 +5,10 @@ from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Upda
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler
 
-import GreyCilik.modules.sql.connection_sql as sql
-from GreyCilik import dispatcher, DRAGONS, DEV_USERS
-from GreyCilik.modules.helper_funcs import chat_status
-from GreyCilik.modules.helper_funcs.alternate import send_message, typing_action
+import Hiroshi.modules.sql.connection_sql as sql
+from Hiroshi import dispatcher, DRAGONS, DEV_USERS
+from Hiroshi.modules.helper_funcs import chat_status
+from Hiroshi.modules.helper_funcs.alternate import send_message, typing_action
 
 user_admin = chat_status.user_admin
 
@@ -405,12 +405,12 @@ __mod_name__ = "Connection"
 __help__ = """
 Sometimes, you just want to add some notes and filters to a group chat, but you don't want everyone to see; This is where connections come in...
 This allows you to connect to a chat's database, and add things to it without the commands appearing in chat! For obvious reasons, you need to be an admin to add things; but any member in the group can view your data.
-❂ /connect: Connects to chat (Can be done in a group by /connect or /connect <chat id> in PM)
-❂ /connection: List connected chats
-❂ /disconnect: Disconnect from a chat
-❂ /helpconnect: List available commands that can be used remotely
+✮ /connect: Connects to chat (Can be done in a group by /connect or /connect <chat id> in PM)
+✮ /connection: List connected chats
+✮ /disconnect: Disconnect from a chat
+✮ /helpconnect: List available commands that can be used remotely
 *Admin only:*
-❂ /allowconnect <yes/no>: allow a user to connect to a chat
+✮ /allowconnect <yes/no>: allow a user to connect to a chat
 """
 
 CONNECT_CHAT_HANDLER = CommandHandler(
