@@ -1,7 +1,7 @@
 import threading
 
-from GreyCilik import dispatcher
-from GreyCilik.modules.sql import BASE, SESSION
+from Hiroshi import dispatcher
+from Hiroshi.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
     ForeignKey,
