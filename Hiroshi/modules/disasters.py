@@ -3,7 +3,7 @@ import json
 import os
 from typing import Optional
 
-from GreyCilik import (
+from Hiroshi import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -13,13 +13,13 @@ from GreyCilik import (
     WOLVES,
     dispatcher,
 )
-from GreyCilik.modules.helper_funcs.chat_status import (
+from Hiroshi.modules.helper_funcs.chat_status import (
     dev_plus,
     sudo_plus,
     whitelist_plus,
 )
-from GreyCilik.modules.helper_funcs.extraction import extract_user
-from GreyCilik.modules.log_channel import gloggable
+from Hiroshi.modules.helper_funcs.extraction import extract_user
+from Hiroshi.modules.log_channel import gloggable
 from telegram import ParseMode, TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
