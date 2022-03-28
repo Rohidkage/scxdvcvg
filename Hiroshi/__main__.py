@@ -92,7 +92,7 @@ PM_START_TEXT = """
 buttons = [
         [
         InlineKeyboardButton(
-            text="+ ᴀᴅᴅ ʜɪʀᴏsʜɪ-ʀᴏʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url="t.me/TurboHiroBot?startgroup=true"
+            text="+ ᴀᴅᴅ ᴛᴜʀʙᴏ-ʀᴏʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url="t.me/TurboHiroBot?startgroup=true"
         ),
     ],
     [
