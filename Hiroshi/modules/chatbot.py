@@ -10,7 +10,6 @@ from Hiroshi import BOT_USERNAME as bu
 from Hiroshi import BOT_ID, pbot, arq
 from Hiroshi.ex_plugins.chatbot import add_chat, get_session, remove_chat
 from Hiroshi.utils.pluginhelper import admins_only, edit_or_reply
-from Hiroshi.modules.language import gs
 
 url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
 
