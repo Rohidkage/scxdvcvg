@@ -26,7 +26,7 @@ from Hiroshi.modules.helper_funcs.extraction import (
 )
 from Hiroshi.modules.log_channel import loggable
 from Hiroshi.modules.helper_funcs.alternate import send_message
-from SiestaRobot.modules.language import gs
+from Hiroshi.modules.language import gs
 
 
 @bot_admin
