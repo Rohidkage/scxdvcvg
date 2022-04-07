@@ -133,7 +133,7 @@ if ENV:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from GreyCilik.config import Development as Config
+    from Hiroshi.config import Development as Config
 
     TOKEN = Config.TOKEN
 
