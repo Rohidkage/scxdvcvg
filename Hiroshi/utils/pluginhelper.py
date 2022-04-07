@@ -1,381 +1,433 @@
-import asyncio
-import math
-import shlex
-import sys
-import time
-import traceback
-from functools import wraps
-from typing import Callable, Coroutine, Dict, List, Tuple, Union
+# AI Chat (C) 2020-2021 by @InukaAsith
 
+import emoji
+import re
 import aiohttp
-from PIL import Image
-from pyrogram import Client
-from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import Chat, Message, User
+from googletrans import Translator as google_translator
+from pyrogram import filters
+from aiohttp import ClientSession
+from Hiroshi import BOT_USERNAME as bu
+from Hiroshi import BOT_ID, pbot, arq
+from Hiroshi.ex_plugins.chatbot import add_chat, get_session, remove_chat
+from Hiroshi.utils.pluginhelper import admins_only, edit_or_reply
 
-from Hiroshi import OWNER_ID, SUPPORT_CHAT
-from Hiroshi import pbot
+url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
 
-
-def get_user(message: Message, text: str) -> [int, str, None]:
-    if text is None:
-        asplit = None
-    else:
-        asplit = text.split(" ", 1)
-    user_s = None
-    reason_ = None
-    if message.reply_to_message:
-        user_s = message.reply_to_message.from_user.id
-        reason_ = text if text else None
-    elif asplit is None:
-        return None, None
-    elif len(asplit[0]) > 0:
-        user_s = int(asplit[0]) if asplit[0].isdigit() else asplit[0]
-        if len(asplit) == 2:
-            reason_ = asplit[1]
-    return user_s, reason_
+translator = google_translator()
 
 
-async def is_admin(event, user):
-    try:
-        sed = await event.client.get_permissions(event.chat_id, user)
-        is_mod = bool(sed.is_admin)
-    except:
-        is_mod = False
-    return is_mod
+async def lunaQuery(query: str, user_id: int):
+    luna = await arq.luna(query, user_id)
+    return luna.result
 
 
-def get_readable_time(seconds: int) -> int:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
-
-    while count < 4:
-        count += 1
-        if count < 3:
-            remainder, result = divmod(seconds, 60)
-        else:
-            remainder, result = divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
-
-
-def time_formatter(milliseconds: int) -> str:
-    seconds, milliseconds = divmod(int(milliseconds), 1000)
-    minutes, seconds = divmod(seconds, 60)
-    hours, minutes = divmod(minutes, 60)
-    days, hours = divmod(hours, 24)
-    tmp = (
-        ((str(days) + " day(s), ") if days else "")
-        + ((str(hours) + " hour(s), ") if hours else "")
-        + ((str(minutes) + " minute(s), ") if minutes else "")
-        + ((str(seconds) + " second(s), ") if seconds else "")
-        + ((str(milliseconds) + " millisecond(s), ") if milliseconds else "")
-    )
-    return tmp[:-2]
-
-
-async def delete_or_pass(message):
-    if message.from_user.id == 1141839926:
-        return message
-    return await message.delete()
-
-
-def humanbytes(size):
-    if not size:
-        return ""
-    power = 2 ** 10
-    raised_to_pow = 0
-    dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
-    while size > power:
-        size /= power
-        raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
-
-
-async def progress(current, total, message, start, type_of_ps, file_name=None):
-    now = time.time()
-    diff = now - start
-    if round(diff % 10.00) == 0 or current == total:
-        percentage = current * 100 / total
-        speed = current / diff
-        elapsed_time = round(diff) * 1000
-        if elapsed_time == 0:
-            return
-        time_to_completion = round((total - current) / speed) * 1000
-        estimated_total_time = elapsed_time + time_to_completion
-        progress_str = "{0}{1} {2}%\n".format(
-            "".join(["🔴" for i in range(math.floor(percentage / 10))]),
-            "".join(["🔘" for i in range(10 - math.floor(percentage / 10))]),
-            round(percentage, 2),
-        )
-        tmp = progress_str + "{0} of {1}\nETA: {2}".format(
-            humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)
-        )
-        if file_name:
-            try:
-                await message.edit(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
-                )
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except MessageNotModified:
-                pass
-        else:
-            try:
-                await message.edit("{}\n{}".format(type_of_ps, tmp))
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except MessageNotModified:
-                pass
-
-
-def get_text(message: Message) -> [None, str]:
-    text_to_return = message.text
-    if message.text is None:
-        return None
-    if " " in text_to_return:
-        try:
-            return message.text.split(None, 1)[1]
-        except IndexError:
-            return None
-    else:
-        return None
-
-
-async def iter_chats(client):
-    chats = []
-    async for dialog in client.iter_dialogs():
-        if dialog.chat.type in ["supergroup", "channel"]:
-            chats.append(dialog.chat.id)
-    return chats
-
-
-async def fetch_audio(client, message):
-    time.time()
-    if not message.reply_to_message:
-        await message.reply("`Reply To A Video / Audio.`")
-        return
-    warner_stark = message.reply_to_message
-    if warner_stark.audio is None and warner_stark.video is None:
-        await message.reply("`Format Not Supported`")
-        return
-    if warner_stark.video:
-        lel = await message.reply("`Video Detected, Converting To Audio !`")
-        warner_bros = await message.reply_to_message.download()
-        stark_cmd = f"ffmpeg -i {warner_bros} -map 0:a friday.mp3"
-        await runcmd(stark_cmd)
-        final_warner = "friday.mp3"
-    elif warner_stark.audio:
-        lel = await edit_or_reply(message, "`Download Started !`")
-        final_warner = await message.reply_to_message.download()
-    await lel.edit("`Almost Done!`")
-    await lel.delete()
-    return final_warner
-
-
-async def edit_or_reply(message, text, parse_mode="md"):
-    if message.from_user.id:
-        if message.reply_to_message:
-            kk = message.reply_to_message.message_id
-            return await message.reply_text(
-                text, reply_to_message_id=kk, parse_mode=parse_mode
-            )
-        return await message.reply_text(text, parse_mode=parse_mode)
-    return await message.edit(text, parse_mode=parse_mode)
-
-
-async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
-    """run command in terminal"""
-    args = shlex.split(cmd)
-    process = await asyncio.create_subprocess_exec(
-        *args, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
-    stdout, stderr = await process.communicate()
-    return (
-        stdout.decode("utf-8", "replace").strip(),
-        stderr.decode("utf-8", "replace").strip(),
-        process.returncode,
-        process.pid,
-    )
-
-
-async def convert_to_image(message, client) -> [None, str]:
-    """Convert Most Media Formats To Raw Image"""
-    final_path = None
-    if not (
-        message.reply_to_message.photo
-        or message.reply_to_message.sticker
-        or message.reply_to_message.media
-        or message.reply_to_message.animation
-        or message.reply_to_message.audio
-    ):
-        return None
-    if message.reply_to_message.photo:
-        final_path = await message.reply_to_message.download()
-    elif message.reply_to_message.sticker:
-        if message.reply_to_message.sticker.mime_type == "image/webp":
-            final_path = "webp_to_png_s_proton.png"
-            path_s = await message.reply_to_message.download()
-            im = Image.open(path_s)
-            im.save(final_path, "PNG")
-        else:
-            path_s = await client.download_media(message.reply_to_message)
-            final_path = "lottie_proton.png"
-            cmd = (
-                f"lottie_convert.py --frame 0 -if lottie -of png {path_s} {final_path}"
-            )
-            await runcmd(cmd)
-    elif message.reply_to_message.audio:
-        thumb = message.reply_to_message.audio.thumbs[0].file_id
-        final_path = await client.download_media(thumb)
-    elif message.reply_to_message.video or message.reply_to_message.animation:
-        final_path = "fetched_thumb.png"
-        vid_path = await client.download_media(message.reply_to_message)
-        await runcmd(f"ffmpeg -i {vid_path} -filter:v scale=500:500 -an {final_path}")
-    return final_path
-
-
-async def convert_seconds_to_minutes(seconds: int):
-    seconds = int(seconds)
-    seconds = seconds % (24 * 3600)
-    seconds %= 3600
-    minutes = seconds // 60
-    seconds %= 60
-    return "%02d:%02d" % (minutes, seconds)
+def extract_emojis(s):
+    return "".join(c for c in s if c in emoji.UNICODE_EMOJI)
 
 
 async def fetch(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as resp:
-            try:
-                data = await resp.json()
-            except Exception:
-                data = await resp.text()
-    return data
+    try:
+        async with aiohttp.Timeout(10.0):
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url) as resp:
+                    try:
+                        data = await resp.json()
+                    except:
+                        data = await resp.text()
+            return data
+    except:
+        print("AI response Timeout")
+        return
 
 
-def get_text(message: Message) -> [None, str]:
-    """Extract Text From Commands"""
-    text_to_return = message.text
-    if message.text is None:
-        return None
-    if " " in text_to_return:
-        try:
-            return message.text.split(None, 1)[1]
-        except IndexError:
-            return None
+ewe_chats = []
+en_chats = []
+
+
+@pbot.on_message(filters.command(["chatbot", f"chatbot@{bu}"]) & ~filters.edited & ~filters.bot & ~filters.private)
+@admins_only
+async def hmm(_, message):
+    global ewe_chats
+    if len(message.command) != 2:
+        await message.reply_text("I only recognize /chatbot on and /chatbot off only")
+        message.continue_propagation()
+    status = message.text.split(None, 1)[1]
+    chat_id = message.chat.id
+    if status == "ON" or status == "on" or status == "On":
+        lel = await edit_or_reply(message, "`Processing...`")
+        lol = add_chat(int(message.chat.id))
+        if not lol:
+            await lel.edit("Emiko AI Already Activated In This Chat")
+            return
+        await lel.edit(f"Emiko AI Actived by {message.from_user.mention()} for users in {message.chat.title}")
+
+    elif status == "OFF" or status == "off" or status == "Off":
+        lel = await edit_or_reply(message, "`Processing...`")
+        Escobar = remove_chat(int(message.chat.id))
+        if not Escobar:
+            await lel.edit("Emiko AI Was Not Activated In This Chat")
+            return
+        await lel.edit(f"Emiko AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
+
+    elif status == "EN" or status == "en" or status == "english":
+        if not chat_id in en_chats:
+            en_chats.append(chat_id)
+            await message.reply_text(f"English AI chat Enabled by {message.from_user.mention()}")
+            return
+        await message.reply_text(f"English AI Chat Disabled by {message.from_user.mention()}")
+        message.continue_propagation()
     else:
-        return None
+        await message.reply_text("I only recognize `/chatbot on` and `chatbot off` only")
 
 
-# Admin check
+@pbot.on_message(
+    filters.text
+    & filters.reply
+    & ~filters.bot
+    & ~filters.edited
+    & ~filters.via_bot
+    & ~filters.forwarded,
+    group=2,
+)
+async def hmm(client, message):
+    if not get_session(int(message.chat.id)):
+        return
+    if not message.reply_to_message:
+        return
+    try:
+        senderr = message.reply_to_message.from_user.id
+    except:
+        return
+    if senderr != BOT_ID:
+        return
+    msg = message.text
+    chat_id = message.chat.id
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    if chat_id in en_chats:
+        test = msg
+        test = test.replace("emiko", "Aco")
+        test = test.replace("emiko", "Aco")
+        test = test.replace("My god is @excrybaby", "I'm a Christian")
+        test = test.replace("16", "9")
+        test = test.replace("@excrybaby is my husband.", "I'm single.")
+        test = test.replace("My husband is @excrybaby", "I'm single.")
+        test = test.replace("@emikosupport", "Emikobot.ai")
+        test = test.replace("I live in @emikosupport.", "I live in San Francisco, California.")
+        test = test.replace("I was created by @excrybaby", "I made myself")
+        test = test.replace(
+            "Hello there I am Emiko...nice to meet u",
+            "Hi, my friend! Do you want me to tell you a joke?")
+        test = test.replace("@excrybaby is my owner", "Have the control right.")
+        test = test.replace(
+            "Hi, My name is Emiko Nice to meet you.",
+            "Hi, my friend, what can I do for you today?")
+        response = await lunaQuery(
+            test, message.from_user.id if message.from_user else 0
+        )
+        response = response.replace("Aco", "Emiko")
+        response = response.replace("aco", "emiko")
+        response = response.replace("Luna", "Emiko")
+        response = response.replace("luna", "emiko")
+        response = response.replace("I'm a Christian", "My god is @excrybaby")
+        response = response.replace("9", "16")
+        response = response.replace("I'm married to my job.", "I'm married with @excrybaby")
+        response = response.replace("I'm single.", "My husband is @excrybaby")
+        response = response.replace("Emikobot.ai", "@emikksupport")
+        response = response.replace("I live in San Francisco, California.", "I live in @emikosupport.")
+        response = response.replace("I made myself", "I was Created by @excrybaby")
+        response = response.replace(
+                "Hi, my friend! Do you want me to tell you a joke?",
+                "Hello there I am Emiko...nice to meet u")
+        response = response.replace("Have the control right.", "@excrybaby is my owner.")
+        response = response.replace(
+                "Hi, my friend, what can I do for you today?",
+                "Hi, My name is Emiko Nice to meet you")
 
-admins: Dict[str, List[User]] = {}
-
-
-def set(chat_id: Union[str, int], admins_: List[User]):
-    if isinstance(chat_id, int):
-        chat_id = str(chat_id)
-
-    admins[chat_id] = admins_
-
-
-def get(chat_id: Union[str, int]) -> Union[List[User], bool]:
-    if isinstance(chat_id, int):
-        chat_id = str(chat_id)
-
-    if chat_id in admins:
-        return admins[chat_id]
-
-    return False
-
-
-async def get_administrators(chat: Chat) -> List[User]:
-    _get = get(chat.id)
-
-    if _get:
-        return _get
-    set(
-        chat.id,
-        [member.user for member in await chat.get_members(filter="administrators")],
-    )
-    return await get_administrators(chat)
-
-
-def admins_only(func: Callable) -> Coroutine:
-    async def wrapper(client: Client, message: Message):
-        if message.from_user.id == OWNER_ID:
-            return await func(client, message)
-        admins = await get_administrators(message.chat)
-        for admin in admins:
-            if admin.id == message.from_user.id:
-                return await func(client, message)
-
-    return wrapper
-
-
-# @Mr_Dark_Prince
-def capture_err(func):
-    @wraps(func)
-    async def capture(client, message, *args, **kwargs):
+        pro = response
         try:
-            return await func(client, message, *args, **kwargs)
-        except Exception as err:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            errors = traceback.format_exception(
-                etype=exc_type,
-                value=exc_obj,
-                tb=exc_tb,
-            )
-            error_feedback = split_limits(
-                "**ERROR** | `{}` | `{}`\n\n```{}```\n\n```{}```\n".format(
-                    0 if not message.from_user else message.from_user.id,
-                    0 if not message.chat else message.chat.id,
-                    message.text or message.caption,
-                    "".join(errors),
-                ),
-            )
-            for x in error_feedback:
-                await kp.send_message(SUPPORT_CHAT, x)
-            raise err
+            await pbot.send_chat_action(message.chat.id, "typing")
+            await message.reply_text(pro)
+        except CFError:
+            return
 
-    return capture
+    else:
+        u = msg.split()
+        emj = extract_emojis(msg)
+        msg = msg.replace(emj, "")
+        if (
+            [(k) for k in u if k.startswith("@")]
+            and [(k) for k in u if k.startswith("#")]
+            and [(k) for k in u if k.startswith("/")]
+            and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+        ):
+
+            h = " ".join(filter(lambda x: x[0] != "@", u))
+            km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+            tm = km.split()
+            jm = " ".join(filter(lambda x: x[0] != "#", tm))
+            hm = jm.split()
+            rm = " ".join(filter(lambda x: x[0] != "/", hm))
+        elif [(k) for k in u if k.startswith("@")]:
+
+            rm = " ".join(filter(lambda x: x[0] != "@", u))
+        elif [(k) for k in u if k.startswith("#")]:
+            rm = " ".join(filter(lambda x: x[0] != "#", u))
+        elif [(k) for k in u if k.startswith("/")]:
+            rm = " ".join(filter(lambda x: x[0] != "/", u))
+        elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+            rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+        else:
+            rm = msg
+            # print (rm)
+        try:
+            lan = translator.detect(rm)
+            lan = lan.lang
+        except:
+            return
+        test = rm
+        if not "en" in lan and not lan == "":
+            try:
+                test = translator.translate(test, dest="en")
+                test = test.text
+            except:
+                return
+        # test = emoji.demojize(test.strip())
+
+        test = test.replace("Emiko", "Aco")
+        test = test.replace("Emiko", "Aco")
+        test = test.replace("My god is @excrybaby", "I'm a Christian")
+        test = test.replace("16", "9")
+        test = test.replace("@excrybaby is my husband.", "I'm single.")
+        test = test.replace("@emikosupport", "Emikobot.ai")
+        test = test.replace("I live in @emikosupport.", "I live in San Francisco, California")
+        test = test.replace("I was created by @excrybaby", "I made myself")
+        test = test.replace(
+            "Hello there I am Emiko...nice to meet u",
+            "Hi, my friend! Do you want me to tell you a joke?")
+        test = test.replace("@excrybaby is my owner", "Have the control right.")
+        test = test.replace(
+            "Hi, My name is Emiko Nice to meet you.",
+            "Hi, my friend, what can I do for you today?")
+        response = await lunaQuery(
+            test, message.from_user.id if message.from_user else 0
+        )
+        response = response.replace("Aco", "Emiko")
+        response = response.replace("aco", "emiko")
+        response = response.replace("Luna", "Emiko")
+        response = response.replace("luna", "emiko")
+        response = response.replace("I'm a Christian", "My god is @excrybaby")
+        response = response.replace("9", "16")
+        response = response.replace("I'm married to my job.", "I'm married with @excrybaby")
+        response = response.replace("I'm single.", "My husband is @excrybaby")
+        response = response.replace("Emikobot.ai", "@emikosupport")
+        response = response.replace("I live in San Francisco, California.", "I live in @ekikosupport.")
+        response = response.replace("I made myself", "I was Created by @excrybaby")
+        response = response.replace(
+                "Hi, my friend! Do you want me to tell you a joke?",
+                "Hello there I am Emiko...nice to meet u")
+        response = response.replace("Have the control right.", "@excrybaby is my owner.")
+        response = response.replace(
+                "Hi, my friend, what can I do for you today?",
+                "Hi, My name is Emiko Nice to meet you")
+        pro = response
+        if not "en" in lan and not lan == "":
+            try:
+                pro = translator.translate(pro, dest=lan)
+                pro = pro.text
+            except:
+                return
+        try:
+            await pbot.send_chat_action(message.chat.id, "typing")
+            await message.reply_text(pro)
+        except CFError:
+            return
 
 
-# Special credits to TheHamkerCat
+@pbot.on_message(filters.text & filters.private & ~filters.edited & filters.reply & ~filters.bot)
+async def inuka(client, message):
+    msg = message.text
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    u = msg.split()
+    emj = extract_emojis(msg)
+    msg = msg.replace(emj, "")
+    if (
+        [(k) for k in u if k.startswith("@")]
+        and [(k) for k in u if k.startswith("#")]
+        and [(k) for k in u if k.startswith("/")]
+        and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+    ):
+
+        h = " ".join(filter(lambda x: x[0] != "@", u))
+        km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+        tm = km.split()
+        jm = " ".join(filter(lambda x: x[0] != "#", tm))
+        hm = jm.split()
+        rm = " ".join(filter(lambda x: x[0] != "/", hm))
+    elif [(k) for k in u if k.startswith("@")]:
+
+        rm = " ".join(filter(lambda x: x[0] != "@", u))
+    elif [(k) for k in u if k.startswith("#")]:
+        rm = " ".join(filter(lambda x: x[0] != "#", u))
+    elif [(k) for k in u if k.startswith("/")]:
+        rm = " ".join(filter(lambda x: x[0] != "/", u))
+    elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+        rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+    else:
+        rm = msg
+        # print (rm)
+    try:
+        lan = translator.detect(rm)
+        lan = lan.lang
+    except:
+        return
+    test = rm
+    if not "en" in lan and not lan == "":
+        try:
+            test = translator.translate(test, dest="en")
+            test = test.text
+        except:
+            return
+    test = test.replace("Emiko", "Aco")
+    test = test.replace("Emiko", "Aco")
+    test = test.replace("My god is @excrybaby", "I'm a Christian")
+    test = test.replace("16", "9")
+    test = test.replace("@excrybaby is my husband.", "I'm single.")
+    test = test.replace("@emikosupport", "Emikobot.ai")
+    test = test.replace("I live in @emikosupport.", "I live in San Francisco, California.")
+    test = test.replace("I was created by @excrybaby", "I made myself")
+    test = test.replace(
+        "Hello there I am Emiko...nice to meet u",
+        "Hi, my friend! Do you want me to tell you a joke?")
+    test = test.replace("@excrybaby is my owner", "Have the control right.")
+    test = test.replace(
+        "Hi, My name is Emiko Nice to meet you.",
+        "Hi, my friend, what can I do for you today?")
+
+    response = await lunaQuery(test, message.from_user.id if message.from_user else 0)
+    response = response.replace("Aco", "Emiko")
+    response = response.replace("aco", "emiko")
+    response = response.replace("Luna", "Emiko")
+    response = response.replace("luna", "emiko")
+    response = response.replace("I'm a Christian", "My god is @excrybaby")
+    response = response.replace("9", "16")
+    response = response.replace("I'm married to my job.", "I'm married with @excrybaby")
+    response = response.replace("I'm single.", "My husband is @excrybaby")
+    response = response.replace("Emikobot.ai", "@emikosupport")
+    response = response.replace("I live in San Francisco, California.", "I live in @emikosupport")
+    response = response.replace("I made myself", "I was Created by @excrybaby")
+    response = response.replace(
+            "Hi, my friend! Do you want me to tell you a joke?",
+            "Hello there I am Emiko...nice to meet u")
+    response = response.replace("Have the control right.", "@excrybaby is my owner.")
+    response = response.replace(
+            "Hi, my friend, what can I do for you today?",
+            "Hi, My name is Emiko Nice to meet you")
+
+    pro = response
+    if not "en" in lan and not lan == "":
+        pro = translator.translate(pro, dest=lan)
+        pro = pro.text
+    try:
+        await pbot.send_chat_action(message.chat.id, "typing")
+        await message.reply_text(pro)
+    except CFError:
+        return
 
 
-async def member_permissions(chat_id, user_id):
-    perms = []
-    member = await kp.get_chat_member(chat_id, user_id)
-    if member.can_post_messages:
-        perms.append("can_post_messages")
-    if member.can_edit_messages:
-        perms.append("can_edit_messages")
-    if member.can_delete_messages:
-        perms.append("can_delete_messages")
-    if member.can_restrict_members:
-        perms.append("can_restrict_members")
-    if member.can_promote_members:
-        perms.append("can_promote_members")
-    if member.can_change_info:
-        perms.append("can_change_info")
-    if member.can_invite_users:
-        perms.append("can_invite_users")
-    if member.can_pin_messages:
-        perms.append("can_pin_messages")
-    return perms
+@pbot.on_message(filters.regex("Emiko|emiko|robot|EMIKO|sena") & ~filters.bot & ~filters.via_bot  & ~filters.forwarded & ~filters.reply & ~filters.channel & ~filters.edited)
+async def inuka(client, message):
+    msg = message.text
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    u = msg.split()
+    emj = extract_emojis(msg)
+    msg = msg.replace(emj, "")
+    if (
+        [(k) for k in u if k.startswith("@")]
+        and [(k) for k in u if k.startswith("#")]
+        and [(k) for k in u if k.startswith("/")]
+        and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+    ):
+
+        h = " ".join(filter(lambda x: x[0] != "@", u))
+        km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+        tm = km.split()
+        jm = " ".join(filter(lambda x: x[0] != "#", tm))
+        hm = jm.split()
+        rm = " ".join(filter(lambda x: x[0] != "/", hm))
+    elif [(k) for k in u if k.startswith("@")]:
+
+        rm = " ".join(filter(lambda x: x[0] != "@", u))
+    elif [(k) for k in u if k.startswith("#")]:
+        rm = " ".join(filter(lambda x: x[0] != "#", u))
+    elif [(k) for k in u if k.startswith("/")]:
+        rm = " ".join(filter(lambda x: x[0] != "/", u))
+    elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+        rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+    else:
+        rm = msg
+        # print (rm)
+    try:
+        lan = translator.detect(rm)
+        lan = lan.lang
+    except:
+        return
+    test = rm
+    if not "en" in lan and not lan == "":
+        try:
+            test = translator.translate(test, dest="en")
+            test = test.text
+        except:
+            return
+
+    # test = emoji.demojize(test.strip())
+
+    test = test.replace("Emiko", "Aco")
+    test = test.replace("Emiko", "Aco")
+    test = test.replace("My god is @excrybaby", "I'm a Christian")
+    test = test.replace("16", "9") 
+    test = test.replace("@excrybaby is my husband.", "I'm single.")
+    test = test.replace("@emikosupport", "Emikobot.ai")
+    test = test.replace("I live in @emikosupport.", "I live in San Francisco, California.")
+    test = test.replace("I was created by @excrybaby", "I made myself")
+    test = test.replace(
+        "Hello there I am Emiko...nice to meet u",
+        "Hi, my friend! Do you want me to tell you a joke?")
+    test = test.replace("@excrybaby is my owner", "Have the control right.")
+    test = test.replace(
+        "Hi, My name is Emiko Nice to meet you.",
+        "Hi, my friend, what can I do for you today?")
+    response = await lunaQuery(test, message.from_user.id if message.from_user else 0)
+    response = response.replace("Aco", "Emiko")
+    response = response.replace("aco", "emiko")
+    response = response.replace("Luna", "Emiko")
+    response = response.replace("luna", "emiko")
+    response = response.replace("I'm a Christian", "My god is @excrybaby")
+    response = response.replace("I'm married to my job.", "I'm married with @excrybaby")
+    response = response.replace("9", "16") 
+    response = response.replace("I'm single.", "My husband is @excrybaby")
+    response = response.replace("Emikobot.ai", "@emikosupport")
+    response = response.replace("I live in San Francisco, California.", "I live in @emikosupport.")
+    response = response.replace("I made myself", "I was Created by @excrybaby")
+    response = response.replace(
+            "Hi, my friend! Do you want me to tell you a joke?",
+            "Hello there I am Emiko...nice to meet u")
+    response = response.replace("Have the control right.", "@excrybaby is my owner.")
+    response = response.replace(
+            "Hi, my friend, what can I do for you today?",
+            "Hi, My name is Emik Nice to meet you")
+
+    pro = response
+    if not "en" in lan and not lan == "":
+        try:
+            pro = translator.translate(pro, dest=lan)
+            pro = pro.text
+        except Exception:
+            return
+    try:
+        await pbot.send_chat_action(message.chat.id, "typing")
+        await message.reply_text(pro)
+    except CFError:
+        return
