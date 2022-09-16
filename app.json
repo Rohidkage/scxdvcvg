@@ -10,7 +10,7 @@
       ],
     
    "logo":    "https://telegra.ph/file/09f3f39dd43de5b66d538.jpg",  
-   "repository": "https://github.com/UserbotMaps/Hiroshi",
+   "repository": "https://github.com/Neehh/TurboRobot",
    "addons": [
           {
          "options": {
@@ -79,12 +79,12 @@
 
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "Bisuinhiro"
+         "value": "Bisubiarenak"
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
          "required": true,
-         "value": "hiroshisupport"
+         "value": "hirossupport"
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",
