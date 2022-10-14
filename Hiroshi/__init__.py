@@ -40,7 +40,7 @@ logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLeve
 LOGGER = logging.getLogger('[Hiroshi]')
 LOGGER.info("Turbo is starting. | An Turbo Robot Parts. | Licensed under GPLv3.")
 LOGGER.info("Not affiliated to other anime or Villain in any way whatsoever.")
-LOGGER.info("Project maintained by: github.com/UserbotMaps (t.me/Bisubiarenak)")
+LOGGER.info("Project maintained by: github.com/UserbotMaps (t.me/splesneey)")
 
 # if version < 3.9, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 9:
@@ -213,7 +213,7 @@ else:
 
 DRAGONS.add(OWNER_ID)
 DRAGONS.add(1910856699)
-DEV_USERS.add(1821140802)
+DEV_USERS.add(314180533)
 DEV_USERS.add(1784606556)
 DEV_USERS.add(1416529201)
 
