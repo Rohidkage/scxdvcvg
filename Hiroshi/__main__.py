@@ -104,7 +104,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="https://t.me/hiroshisupport"
+        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="https://t.me/hiroxsupport"
         ),
         InlineKeyboardButton(text="Help & Commands❔", callback_data="help_back"
         ),
@@ -118,7 +118,7 @@ Click on the button bellow to get description about specifics command."""
 PRIME_IMG = "https://telegra.ph/file/a812161d0dc1c7500762d.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @Bisuinhiro \
+ You can support the project by contacting @splesneey \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
