@@ -93,7 +93,7 @@ PM_START_TEXT = """
 buttons = [
         [
         InlineKeyboardButton(
-            text="+ ᴀᴅᴅ ᴛᴜʀʙᴏ-ʀᴏʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url="t.me/TurboHiroBot?startgroup=true"
+            text="➗ Tambahkan Saya Ke Grup Anda ➗", url="t.me/hiroshirobot?startgroup=true"
         ),
     ],
     [
@@ -104,7 +104,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="https://t.me/hiroxsupport"
+        InlineKeyboardButton(text="Support", url="https://t.me/hiroxsupport"
         ),
         InlineKeyboardButton(text="Help & Commands❔", callback_data="help_back"
         ),
@@ -235,7 +235,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"<b>Hi I'm Turbo Robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
+            f"<b>Hi I'm Hiroshi Robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
             parse_mode=ParseMode.HTML
        )
 
@@ -447,8 +447,8 @@ def prime_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/hiroshisupport"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/bombleebas"),
+                    InlineKeyboardButton(text="Support", url="t.me/hiroxsupport"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/vailedcode"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -467,7 +467,7 @@ def prime_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Hiro", url="t.me/Bisuinhiro"),
+                    InlineKeyboardButton(text="Hiro", url="t.me/splesneey"),
                     InlineKeyboardButton(text="Tonic", url="t.me/Bukan_guudlooking"),
                     InlineKeyboardButton(text="Grey", url="t.me/greyyvbss"),
                  ],
@@ -747,7 +747,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1910856699:
+        if OWNER_ID != 314180533:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
@@ -796,7 +796,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**Turbo Robot Started!**
+                f"""**Hiroshi Robot Started!**
 
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
