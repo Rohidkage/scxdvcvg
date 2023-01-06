@@ -82,12 +82,15 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
- ───「[ᴛᴜʀʙᴏ ʀᴏʙᴏᴛ](https://t.me/TurboHiroBot)」───
 *Hello {} !*
+
+**Saya Adalah Bot Hiroshirobot Group Manager - Music Voice Chat Dengan Fitur Yang Sangat Menarik** [✨]
+(https://telegra.ph//file/53a551f5a002aedbb2a66.jpg)
 ────────────────────
-ᴛᴜʀʙᴏ ʀᴏʙᴏᴛ ᴀ ᴘᴏᴡᴇʀғᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ!
+➛ *Uptime:* {}
+➛ {} *users, across* {} *chats.*
 ────────────────────
-ʜɪᴛ ᴛʜᴇ /help ᴏʀ ᴛᴀᴘ ᴏɴ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅ ᴏɴ ᴍᴇ.
+**Klik Tombol /help Untuk Mengetahui Fitur Menarik Dari Hiroshirobot**
 """
 
 buttons = [
@@ -115,7 +118,7 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-PRIME_IMG = "https://telegra.ph/file/a812161d0dc1c7500762d.jpg"
+PRIME_IMG = "https://telegra.ph//file/53a551f5a002aedbb2a66.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @splesneey \
