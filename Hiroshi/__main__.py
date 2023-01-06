@@ -84,13 +84,13 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *Hello {} !*
 
-**Saya Adalah Bot Hiroshirobot Group Manager - Music Voice Chat Dengan Fitur Yang Sangat Menarik** [✨]
+*Saya Adalah Hiroshi Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨]
 (https://telegra.ph//file/53a551f5a002aedbb2a66.jpg)
-────────────────────
+➖➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ *Uptime:* {}
 ➛ {} *users, across* {} *chats.*
-────────────────────
-**Klik Tombol /help Untuk Mengetahui Fitur Menarik Dari Hiroshirobot**
+➖➖➖➖➖➖➖➖➖➖➖➖➖
+*Klik Tombol help Untuk Mengetahui Fitur Menarik Dari Hiroshirobot*
 """
 
 buttons = [
