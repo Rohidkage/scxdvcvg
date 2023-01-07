@@ -65,7 +65,7 @@ RUN apt update && apt upgrade -y && \
 RUN pip3 install --upgrade pip setuptools
 
 # Copy Python Requirements to /root/Hiroshi 
-RUN git clone -b shiken https://github.com/UserbotMaps/Hiroshi /root/Hiroshi
+RUN git clone -b shiken https://github.com/Neehh/TurboRobot /root/Hiroshi
 WORKDIR /root/Hiroshi
 
 #Copy config file to /root/Hiroshi/Hiroshi
