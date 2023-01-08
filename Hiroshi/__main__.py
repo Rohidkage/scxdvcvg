@@ -85,10 +85,10 @@ PM_START_TEXT = """
 *Hello {} !*
 
 *Saya Adalah Hiroshi Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨](https://telegra.ph//file/53a551f5a002aedbb2a66.jpg)
-➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ *Uptime:* {}
 ➛ {} *users, across* {} *chats.*
-➖➖➖➖➖➖➖➖➖➖➖➖➖
+➖➖➖➖➖➖➖➖➖➖➖➖
 *Klik Tombol Bantuan Untuk Mengetahui Fitur Menarik Dari Hiroshirobot*
 """
 
