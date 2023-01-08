@@ -83,12 +83,13 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
+
 *Saya Adalah Hiroshi Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨](https://telegra.ph//file/53a551f5a002aedbb2a66.jpg)
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ *Uptime:* {}
 ➛ {} *users, across* {} *chats.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
-*Klik Tombol help Untuk Mengetahui Fitur Menarik Dari Hiroshirobot*
+*Klik Tombol Bantuan Untuk Mengetahui Fitur Menarik Dari Hiroshirobot*
 """
 
 buttons = [
@@ -98,16 +99,9 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="About", callback_data="prime_"
+        InlineKeyboardButton(text="Tentang", callback_data="prime_"
         ),
-        InlineKeyboardButton(
-            text="TryInline", switch_inline_query_current_chat=""
-        ),
-    ],
-    [
-        InlineKeyboardButton(text="Support", url="https://t.me/hiroxsupport"
-        ),
-        InlineKeyboardButton(text="Help & Commands❔", callback_data="help_back"
+        InlineKeyboardButton(text="Bantuan", callback_data="help_back"
         ),
     ],
 ]
