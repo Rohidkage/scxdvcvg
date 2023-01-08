@@ -75,7 +75,7 @@ async def mentionall(event):
 @Client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
-        return await event.respond("*"Tidak ada proses yang berjalan...**")
+        return await event.respond("**Tidak ada proses yang berjalan...**")
     else:
         try:
             spam_chats.remove(event.chat_id)
