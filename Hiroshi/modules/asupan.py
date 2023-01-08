@@ -279,7 +279,7 @@ async def _(event):
         pantek = await ubot2.download_media(kontols)
         await tbot.send_file(
             event.chat.id, 
-            caption="Adult Photos by Hiroshirobot, 
+            caption="Adult Photos by Hiroshirobot", 
             file=pantek
             )
         await memeks.delete()
