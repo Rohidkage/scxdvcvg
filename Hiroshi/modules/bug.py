@@ -49,7 +49,7 @@ async def bug(_, msg: Message):
     thumb = "https://telegra.ph/file/91d996acbce4283dc1c6b.jpg"
     
     bug_report = f"""
-**#BUG : ** **[Master](https://t.me/Bisuinhiro)**
+**#BUG : ** **[Master](https://t.me/splesneey)**
 **From User : ** **{mention}**
 **User ID : ** **{user_id}**
 **Group : ** **{chat_username}**
@@ -58,13 +58,13 @@ async def bug(_, msg: Message):
 
     
     if msg.chat.type == "private":
-        await msg.reply_text("❎ <b>This command only works in groups.</b>")
+        await msg.reply_text("❎ **<b>Perintah ini hanya berfungsi di group.</b>**")
         return
 
     if user_id == owner:
         if bugs:
             await msg.reply_text(
-                f"❎ <b>How can be owner bot reporting bug idiot??</b>",
+                f"❎ **<b>Lu yang bikin Lu yang lapor, Owner tolol!</b>**",
             )
             return
         else:
@@ -75,7 +75,7 @@ async def bug(_, msg: Message):
         if bugs:
             await msg.reply_text(
                 f"<b>Bug Report : {bugs}</b>\n\n"
-                "✅ <b>The bug was successfully reported to the support group!</b>",
+                "✅ **<b>Bug berhasil dilaporkan ke group support!</b>**",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -104,7 +104,7 @@ async def bug(_, msg: Message):
             )
         else:
             await msg.reply_text(
-                f"❎ <b>No bug to Report!</b>",
+                f"❎ <b>**Tidak ada bug untuk yang Dilaporkan!</b>**",
             )
         
     
