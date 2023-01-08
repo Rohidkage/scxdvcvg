@@ -99,9 +99,9 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="Tentang", callback_data="prime_"
+        InlineKeyboardButton(text="ℹ️ Tentang", callback_data="prime_"
         ),
-        InlineKeyboardButton(text="Bantuan", callback_data="help_back"
+        InlineKeyboardButton(text="👮‍♂️ Bantuan", callback_data="help_back"
         ),
     ],
 ]
