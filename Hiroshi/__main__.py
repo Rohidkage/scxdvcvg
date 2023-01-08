@@ -378,7 +378,7 @@ def prime_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="Support", callback_data="prime_support"),
-                    InlineKeyboardButton(text="Credits", callback_data="prime_credit"),
+                    InlineKeyboardButton(text="Donatur", callback_data="prime_credit"),
                  ],
                  [
                     InlineKeyboardButton(text="Musicplayer", callback_data="source_"),
@@ -406,7 +406,7 @@ def prime_about_callback(update, context):
     elif query.data == "prime_admin":
         query.message.edit_text(
             text=f"*❒ Let's make your group bit effective now*"
-            "\nCongragulations, Turbo Robot now ready to manage your group."
+            "\nCongragulations, hiroshirobot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -433,8 +433,8 @@ def prime_about_callback(update, context):
         )
     elif query.data == "prime_support":
         query.message.edit_text(
-            text="*❒ Hiroshi support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on Hiroshi.",
+            text="*🫂 Hiroshi support chats*"
+            "\nJoin My Support Group/Channel for see or report a problem on hiroshirobot",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -453,15 +453,13 @@ def prime_about_callback(update, context):
 
     elif query.data == "prime_credit":
         query.message.edit_text(
-            text=f"<b>❒ Credis for Hiroshi</b>\n"
+            text=f"<b>👮‍♂️ Donatur for Hiroshi</b>\n"
             f"\nHere Developers Making The Hiroshi Robot",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Hiro", url="t.me/splesneey"),
-                    InlineKeyboardButton(text="Tonic", url="t.me/Bukan_guudlooking"),
-                    InlineKeyboardButton(text="Grey", url="t.me/greyyvbss"),
+                    InlineKeyboardButton(text="Developer Hiroshi", url="t.me/splesneey"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -787,8 +785,8 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**Hiroshi Robot Started!**
-
+                f"""**Congrats!! hiroshirobot has started successfully!**
+➖➖➖➖➖➖➖➖➖
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
                 parse_mode=ParseMode.MARKDOWN
