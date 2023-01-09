@@ -20,7 +20,7 @@ APAKAH_STRING = ["Iya",
                  "Ngga Bangettt!!!",
                  "ihh Najis Ke GR an Banget si",
                  "Terserah Lu dah",
-                 "Iya Si Grey Emang Ganteng"
+                 "Iya Si Hiroshi Emang Ganteng"
                
                  ]
 
