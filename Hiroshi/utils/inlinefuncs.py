@@ -108,7 +108,7 @@ async def inline_help_func(__HELP__):
             input_message_content=InputTextMessageContent(
                 "**__Click A Button To Get Started.__**"
             ),
-            thumb_url="https://telegra.ph/file/4b49392b7d0e8c6a408e8.jpg",
+            thumb_url="https://telegra.ph//file/53a551f5a002aedbb2a66.jpg",
             reply_markup=buttons,
         ),
     ]
@@ -121,12 +121,12 @@ async def alive_function(answers):
     bot_state = "Dead" if not await app.get_me() else "Alive"
     ubot_state = "Dead" if not await ubot2.get_me() else "Alive"
     buttons.add(
-        InlineKeyboardButton("Main bot", url="https://t.me/TurboHiroBot"),
+        InlineKeyboardButton("Main bot", url="https://t.me/hiroshirobot"),
         InlineKeyboardButton("Go Inline!", switch_inline_query_current_chat=""),
     )
 
     msg = f"""
-**[Turbo Robot ✨](https://t.me/TurboHiroBot):**
+**[Hiroshi Robot ✨](https://t.me/hiroshirobot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `{ubot_state}`
 **Python:** `{pyver.split()[0]}`
@@ -139,7 +139,7 @@ async def alive_function(answers):
         InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/4b49392b7d0e8c6a408e8.jpg",
+            thumb_url="https://telegra.ph//file/53a551f5a002aedbb2a66.jpg",
             input_message_content=InputTextMessageContent(
                 msg, disable_web_page_preview=True
             ),
@@ -431,8 +431,8 @@ async def tg_search_func(answers, text, user_id):
 
 
 async def music_inline_func(answers, query):
-    chat_id = -1001676791593
-    group_invite = "https://t.me/joinchat/+XR5e4RHW4mpkZDY9"
+    chat_id = -1001810928340
+    group_invite = "https://t.me/hiroxsupport?videochat"
     try:
         messages = [
             m
