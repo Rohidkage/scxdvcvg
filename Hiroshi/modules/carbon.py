@@ -51,6 +51,4 @@ async def repo(_, message):
                     InlineKeyboardButton("💌 𝙲ʜᴀɴɴᴇʟ​", url="https://t.me/hiroxsupport")
                 ]
             ]
-        ),
-        disable_web_page_preview=True
-    )
+        )
