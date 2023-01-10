@@ -24,22 +24,31 @@ async def carbon_func(_, message):
     carbon.close()
 
 
+MEMEK = "https://telegra.ph//file/53a551f5a002aedbb2a66.jpg"
+
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
-    await message.reply_text(
-        f"""✨ **Hey I'm Turbo Robot** 
-**Owner repo : [Hiro](https://t.me/Bisuinhiro)**
-**Python Version :** `{y()}`
-**Library Version :** `{o}`
-**Telethon Version :** `{s}`
-**Pyrogram Version :** `{z}`
-**Create your own with click button bellow.**
+    await message.reply_photo(
+        photo=MEMEK,
+        f"""**Saya Adalah HiroshiRobot.**
+**➖➖➖➖➖➖➖➖** 
+➥ **My Master : [нιяσѕнι ꭙ](https://t.me/splesneey)**
+**➖➖➖➖➖➖➖➖**
+➥ **Python Version :** `{y()}`
+**➖➖➖➖➖➖➖➖**
+➥ **Library Version :** `{o}`
+**➖➖➖➖➖➖➖➖**
+➥ **Telethon Version :** `{s}`
+**➖➖➖➖➖➖➖➖**
+➥ **Pyrogram Version :** `{z}`
+**➖➖➖➖➖➖➖➖**
+**Create your own with click button bellow ❤**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Repo", url="https://github.com/UserbotMaps/Hiroshi"), 
-                    InlineKeyboardButton("Support", url="https://t.me/hiroshisupport")
+                    InlineKeyboardButton("👮‍♂️ 𝚁ᴇᴘᴏ", url="https://github.com/Neehh/Vanostra-Userbot"), 
+                    InlineKeyboardButton("💌 𝙲ʜᴀɴɴᴇʟ​", url="https://t.me/hiroxsupport")
                 ]
             ]
         ),
