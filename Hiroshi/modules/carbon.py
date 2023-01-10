@@ -30,7 +30,7 @@ MEMEK = "https://telegra.ph//file/53a551f5a002aedbb2a66.jpg"
 async def repo(_, message):
     await message.reply_photo(
         photo=MEMEK,
-        f"""**Saya Adalah HiroshiRobot.**
+        caption=f"""**Saya Adalah HiroshiRobot.**
 **➖➖➖➖➖➖➖➖** 
 ➥ **My Master : [нιяσѕнι ꭙ](https://t.me/splesneey)**
 **➖➖➖➖➖➖➖➖**
@@ -47,8 +47,11 @@ async def repo(_, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("👮‍♂️ 𝚁ᴇᴘᴏ", url="https://github.com/Neehh/Vanostra-Userbot"), 
-                    InlineKeyboardButton("💌 𝙲ʜᴀɴɴᴇʟ​", url="https://t.me/hiroxsupport")
+                    InlineKeyboardButton(
+                        "👮‍♂️ 𝚁ᴇᴘᴏ", url="https://github.com/Neehh/Vanostra-Userbot"), 
+                    InlineKeyboardButton(
+                        "💌 𝙲ʜᴀɴɴᴇʟ​", url="https://t.me/vailedcode")
                 ]
             ]
         )
+    )
