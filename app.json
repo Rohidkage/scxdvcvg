@@ -10,7 +10,7 @@
       ],
     
    "logo":    "https://telegra.ph/file/09f3f39dd43de5b66d538.jpg",  
-   "repository": "https://github.com/Neehh/TurboRobot",
+   "repository": "https://github.com/Rohidkage/TurboRobot",
    "addons": [
           {
          "options": {
@@ -69,7 +69,7 @@
       },
       "BOT_USERNAME": {
          "description": "username of your bot without the @",
-         "value": "TurboHiroBot"
+         "value": "kagerobotbot"
       },
 
       "BOT_ID": {
@@ -112,12 +112,12 @@
       "CASH_API_KEY": {
          "description": "Required for currency converter. Get yours from https://www.alphavantage.co/support/#api-key",
          "required": true,
-         "value": "-xyz"
+         "value": "V7NS1NBFEL4X24L6"
       },
       "TIME_API_KEY": {
          "description": "Required for timezone information. Get yours from https://timezonedb.com/api",
          "required": true,
-         "value": "-xyz"
+         "value": "2AS711XS1O9B"
      }, 
 
       "API_OPENWEATHER": {
