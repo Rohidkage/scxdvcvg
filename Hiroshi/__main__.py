@@ -84,18 +84,18 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *Hello {} !*
 
-*Saya Adalah Hiroshi Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨](https://telegra.ph//file/53a551f5a002aedbb2a66.jpg)
+*Saya Adalah Kage Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨](http://telegra.ph//file/8ed82eaed39a6a49ded80.jpg)
 ➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ *Uptime:* {}
 ➛ {} *users, across* {} *chats.*
 ➖➖➖➖➖➖➖➖➖➖➖➖
-*Klik Tombol Bantuan Untuk Mengetahui Fitur Menarik Dari Hiroshirobot*
+*Klik Tombol Bantuan Untuk Mengetahui Fitur Menarik Dari Kagerobot*
 """
 
 buttons = [
         [
         InlineKeyboardButton(
-            text="➗ Tambahkan Saya Ke Grup Anda ➗", url="t.me/hiroshirobot?startgroup=true"
+            text="➗ Tambahkan Saya Ke Grup Anda ➗", url="t.me/kagerobotbot?startgroup=true"
         ),
     ],
     [
@@ -110,10 +110,10 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-PRIME_IMG = "https://telegra.ph//file/53a551f5a002aedbb2a66.jpg"
+PRIME_IMG = "http://telegra.ph//file/8ed82eaed39a6a49ded80.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @splesneey \
+ You can support the project by contacting @KageBunshiiin \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -229,7 +229,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"<b>Hi I'm Hiroshi Robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
+            f"<b>Hi I'm Kage Robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
             parse_mode=ParseMode.HTML
        )
 
@@ -359,7 +359,7 @@ def prime_about_callback(update, context):
     query = update.callback_query
     if query.data == "prime_":
         query.message.edit_text(
-            text="❒ I'm *Hiroshi*, a powerful group management bot built to help you manage your group easily."
+            text="❒ I'm *Kage*, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
             "\n• I can greet users with customizable welcome messages and even set a group's rules."
             "\n• I have an advanced anti-flood system."
@@ -433,14 +433,14 @@ def prime_about_callback(update, context):
         )
     elif query.data == "prime_support":
         query.message.edit_text(
-            text="*🫂 Hiroshi support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on hiroshirobot",
+            text="*🫂 Kage support chats*"
+            "\nJoin My Support Group/Channel for see or report a problem on kagerobot",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/hiroxsupport"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/vailedcode"),
+                    InlineKeyboardButton(text="Support", url="t.me/logkage"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/kagestore69"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -453,13 +453,13 @@ def prime_about_callback(update, context):
 
     elif query.data == "prime_credit":
         query.message.edit_text(
-            text=f"<b>👮‍♂️ Donatur for Hiroshi</b>\n"
+            text=f"<b>👮‍♂️ Donatur for Kage</b>\n"
             f"\nHere Developers Making The Hiroshi Robot",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Developer Hiroshi", url="t.me/splesneey"),
+                    InlineKeyboardButton(text="Developer Kage", url="t.me/KageBunshiiin"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="prime_"),
@@ -736,7 +736,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 314180533:
+        if OWNER_ID != 1557184285:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
@@ -785,7 +785,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**Congrats!! hiroshirobot has started successfully!**
+                f"""**Congrats!! kagerobot has started successfully!**
 ➖➖➖➖➖➖➖➖➖
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
