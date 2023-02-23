@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="http://telegra.ph//file/8ed82eaed39a6a49ded80.jpg">
+  <img src="https://telegra.ph/file/909942858a15f63fbdefd.jpg">
 </p>
 
 <h4><p align="center"> 𝐊𝐀𝐆𝐄 𝐌𝐀𝐍𝐀𝐆𝐄𝐑</p></h4> 
