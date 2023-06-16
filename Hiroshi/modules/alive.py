@@ -17,7 +17,7 @@ async def awake(event):
   GREY += f"➖➖➖➖➖➖➖➖\n"
   GREY += "➥ **I'm Working Properly** \n"
   GREY += f"➖➖➖➖➖➖➖➖\n"
-  GREY += f"➥ **My Master : [нιяσѕнι ꭙ](https://t.me/kagebunshiiin)** \n"
+  GREY += f"➥ **My Master : [𝙆𝙖𝙜𝙚𝙗𝙪𝙣𝙨𝙝𝙞𝙞𝙞𝙣](https://t.me/kagebunshiiin)** \n"
   GREY += f"➖➖➖➖➖➖➖➖\n"
   GREY += f"➥ **Library Version :** `{telever}` \n"
   GREY += f"➖➖➖➖➖➖➖➖\n"
