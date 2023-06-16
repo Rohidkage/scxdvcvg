@@ -38,9 +38,9 @@ logging.getLogger("pyrogram").setLevel(logging.INFO)
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger('[Hiroshi]')
-LOGGER.info("Hiroshirobot is starting. | An Hiroshi Robot Parts. | Licensed under GPLv3.")
+LOGGER.info("Kagerobot is starting. | An Kage Robot Parts. | Licensed under GPLv3.")
 LOGGER.info("Not affiliated to other anime or Villain in any way whatsoever.")
-LOGGER.info("Project maintained by: github.com/Neehh (t.me/splesneey)")
+LOGGER.info("Project maintained by: github.com/Rohidkage (t.me/kagebunshiiin)")
 
 # if version < 3.9, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 9:
@@ -107,7 +107,7 @@ if ENV:
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
     VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
-    DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
+    DEL_CMDS = bool(os.environ.get("DEL_CMDS", True))
     STRICT_GBAN = bool(os.environ.get("STRICT_GBAN", False))
     WORKERS = int(os.environ.get("WORKERS", 8))
     BAN_STICKER = os.environ.get("BAN_STICKER", "CAADAgADOwADPPEcAXkko5EB3YGYAg")
@@ -121,7 +121,7 @@ if ENV:
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
     CF_API_KEY = os.environ.get("CF_API_KEY", None)
     WELCOME_DELAY_KICK_SEC = os.environ.get("WELCOME_DELAY_KICL_SEC", None)
-    BOT_ID = int(os.environ.get("BOT_ID", None))
+    BOT_ID = int(os.environ.get("BOT_ID", 1557184285))
     ARQ_API_URL = "https://arq.hamker.in"
     ARQ_API_KEY = "JGAGDG-PMBLVJ-NXPSKF-BMCCDF-ARQ"
 
