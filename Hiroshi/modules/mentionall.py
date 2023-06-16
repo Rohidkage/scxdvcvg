@@ -12,8 +12,8 @@ from Hiroshi import telethn as Client
 spam_chats = []
 
 
-@Client.on(events.NewMessage(pattern="^/asw ?(.*)"))
-@Client.on(events.NewMessage(pattern="^@asw ?(.*)"))
+@Client.on(events.NewMessage(pattern="^/tag all?(.*)"))
+@Client.on(events.NewMessage(pattern="^@tag all ?(.*)"))
 async def mentionall(event):
     chat_id = event.chat_id
     if event.is_private:
@@ -56,7 +56,7 @@ async def mentionall(event):
         if not chat_id in spam_chats:
             break
         usrnum += 1
-        usrtxt += f"✆ [{usr.first_name}](tg://user?id={usr.id})\n"
+        usrtxt += f"👻 [{usr.first_name}](tg://user?id={usr.id})\n"
         if usrnum == 5:
             if mode == "text_on_cmd":
                 txt = f"{msg}\n\n{usrtxt}"
