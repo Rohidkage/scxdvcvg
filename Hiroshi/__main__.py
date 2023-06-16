@@ -84,7 +84,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *Hello {} !*
 
-*Saya Adalah Kage Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨](http://telegra.ph//file/8ed82eaed39a6a49ded80.jpg)
+*Saya Adalah Kage Robot, Group Manager / Music Voice Chat Dengan Fitur Yang Sangat Menarik.* [✨](https://telegra.ph/file/909942858a15f63fbdefd.jpg)
 ➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ *Uptime:* {}
 ➛ {} *users, across* {} *chats.*
