@@ -5,7 +5,7 @@ from Hiroshi import telethn
 from Hiroshi.events import register as tomori
 
 
-@tomori(pattern="^/tagall ?(.*)")
+@tomori(pattern="^/all ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
