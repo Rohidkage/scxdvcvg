@@ -5,7 +5,7 @@ wget
 gtts
 beautifulsoup4
 requests
-python-telegram-bot==13.11.0
+python-telegram-bot==13.10.0
 SQLAlchemy==1.4.29
 psycopg2-binary
 feedparser
@@ -32,7 +32,7 @@ regex
 bleach
 wikipedia
 markdown2
-telethon==1.24.0
+telethon
 telegraph
 heroku3
 spamwatch
@@ -43,7 +43,7 @@ ujson
 pretty_errors
 pygithub
 TgCrypto
-pyrogram==1.4.12
+pyrogram
 PyDictionary
 yt-dlp
 youtube_search_python
